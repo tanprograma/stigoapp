@@ -1,0 +1,21 @@
+<div class="dashboard">
+  <table *ngFor="let item of inventory">
+    <thead>
+      <tr>
+        <th>medicines</th>
+        <th *ngFor="let date of item.transaction.dates">
+          {{ changeDate(date) }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ item.commodity }}</td>
+
+        <td *ngFor="let quantity of item.transaction.quantities">
+          {{ quantity }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

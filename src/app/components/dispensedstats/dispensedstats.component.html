@@ -1,0 +1,51 @@
+<div class="dispensedstats">
+  <div class="nav">
+    <div class="all">
+      <button (click)="getAll()">all</button>
+    </div>
+    <div class="date">
+      <div class="searchcontainer">
+        <label for="any">date</label>
+        <input type="date" id="any" [(ngModel)]="date" />
+      </div>
+      <button (click)="getDate()">search</button>
+    </div>
+    <div class="range">
+      <div class="searchcontainer">
+        <label for="min">min</label>
+        <input type="date" id="min" [(ngModel)]="minDate" />
+      </div>
+      <div class="searchcontainer">
+        <label for="max">max</label>
+        <input type="date" id="max" [(ngModel)]="maxDate" />
+      </div>
+
+      <button (click)="getRange()">search</button>
+    </div>
+  </div>
+
+  <!-- displays for all dates -->
+  <div *ngIf="dataView == allView" class="all container">
+    <h3 class="heading">dispensed all dates</h3>
+    <div class="container-data">
+      <app-table-data [tableData]="tableData"></app-table-data>
+    </div>
+  </div>
+  <!-- end for all dates -->
+  <!-- displays on date -->
+  <div *ngIf="dataView == dateView" class="ondate container">
+    <h3 class="heading">dispensed on {{ date }}</h3>
+    <div class="container-data">
+      <app-table-data [tableData]="tableData"></app-table-data>
+    </div>
+  </div>
+  <!-- end displays on date -->
+  <!-- dispalys on range -->
+  <div *ngIf="dataView == rangeView" class="onrange container">
+    <h3 class="heading">dispensed from {{ minDate }} to {{ maxDate }}</h3>
+    <div class="container-data">
+      <app-table-data [tableData]="tableData"></app-table-data>
+    </div>
+  </div>
+  <!-- end of display on range -->
+</div>

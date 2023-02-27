@@ -1,0 +1,54 @@
+<div class="dispensecontainer">
+  <div class="addremove">
+    <button class="reset" (click)="request.reset(destination)">RESET</button>
+    <button class="remove" (click)="request.request.remove()">REMOVE(-)</button>
+    <button class="add" (click)="request.request.add()">ADD(+)</button>
+  </div>
+  <form (ngSubmit)="request.submitRequest(destination)" #f="ngForm">
+    <div class="client">
+      <label for="client"><button>REQUEST FROM:</button></label>
+      <input
+        list="hosts"
+        [ngModelOptions]="{ standalone: true }"
+        id="client"
+        autocomplete="off"
+        [(ngModel)]="request.request.host"
+      />
+      <datalist id="hosts">
+        <option
+          *ngFor="let store of appData.stores"
+          value="{{ store.store | uppercase }}"
+        ></option>
+      </datalist>
+    </div>
+    <div
+      class="control"
+      *ngFor="let requestItem of request.request.commodities"
+    >
+      <input
+        list="commodities"
+        id=""
+        autocomplete="off"
+        placeholder="e.g metro"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="requestItem.commodity"
+      />
+      <datalist id="commodities">
+        <option
+          *ngFor="let commodity of appData.commodities"
+          value="{{ commodity.commodity | uppercase }}"
+        ></option>
+      </datalist>
+      <input
+        type="number"
+        [ngModelOptions]="{ standalone: true }"
+        id=""
+        autocomplete="off"
+        [(ngModel)]="requestItem.requested"
+      />
+    </div>
+    <div class="submit">
+      <input type="submit" value="SUBMIT request" />
+    </div>
+  </form>
+</div>

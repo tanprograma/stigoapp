@@ -1,0 +1,58 @@
+<div class="dispensecontainer">
+  <div class="addremove">
+    <button class="reset" (click)="prescription.reset(host)">RESET</button>
+    <button class="remove" (click)="prescription.prescription.remove()">
+      REMOVE(-)
+    </button>
+    <button class="add" (click)="prescription.prescription.add()">
+      ADD(+)
+    </button>
+  </div>
+  <form (ngSubmit)="prescription.submitPrescription(host)" #f="ngForm">
+    <div class="client">
+      <label for="client"><button>client</button></label>
+      <input
+        list="clients"
+        [ngModelOptions]="{ standalone: true }"
+        id="client"
+        autocomplete="off"
+        [(ngModel)]="prescription.prescription.client"
+      />
+      <datalist id="clients">
+        <option
+          *ngFor="let client of appData.clients"
+          value="{{ client.client | uppercase }}"
+        ></option>
+      </datalist>
+    </div>
+    <div
+      class="control"
+      *ngFor="let prescriptionItem of prescription.prescription.commodities"
+    >
+      <input
+        list="commodities"
+        id=""
+        autocomplete="off"
+        placeholder="e.g metro"
+        [ngModelOptions]="{ standalone: true }"
+        [(ngModel)]="prescriptionItem.commodity"
+      />
+      <datalist id="commodities">
+        <option
+          *ngFor="let commodity of appData.commodities"
+          value="{{ commodity.commodity | uppercase }}"
+        ></option>
+      </datalist>
+      <input
+        type="number"
+        [ngModelOptions]="{ standalone: true }"
+        id=""
+        autocomplete="off"
+        [(ngModel)]="prescriptionItem.requested"
+      />
+    </div>
+    <div class="submit">
+      <input type="submit" value="SUBMIT PRESCRIPTION" />
+    </div>
+  </form>
+</div>

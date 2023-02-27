@@ -1,0 +1,48 @@
+.issue {
+  background-color: rgb(212, 148, 220);
+  height: 100%;
+  padding: 0.5vh;
+}
+.issue-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5vh;
+  width: 50%;
+  background-color: blanchedalmond;
+}
+table {
+  width: 90%;
+  margin-left: auto;
+  margin-bottom: auto;
+}
+
+td,
+th {
+  text-align: left;
+}
+.primary {
+  min-height: 5vh;
+  background-color: white;
+}
+.secondary {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.1vh;
+  margin-top: 0.1vh;
+  width: 90%;
+  height: 3vh;
+  justify-content: space-between;
+}
+.secondary button {
+  flex: 0 0 20%;
+  height: 100%;
+  /* display: block; */
+}
+.inspectbtn {
+  background-color: yellow;
+}
+.issuebtn {
+  background-color: rgb(69, 228, 189);
+}

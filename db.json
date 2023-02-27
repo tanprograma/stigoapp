@@ -1,0 +1,364 @@
+{
+  "stores": [
+    {
+      "store": "mainclinic",
+      "_id": 1
+    },
+    {
+      "store": "rightbank",
+      "_id": 2
+    },
+    {
+      "store": "powerhouse",
+      "_id": 3
+    },
+    {
+      "store": "saddledam",
+      "_id": 4
+    },
+    {
+      "store": "material control",
+      "_id": 5,
+      "isWarehouse": true
+    }
+  ],
+  "clients": [
+    {
+      "client": "jv",
+      "_id": 1
+    },
+    {
+      "client": "arabtz",
+      "_id": 2
+    },
+    {
+      "client": "sinohydro",
+      "_id": 3
+    },
+    {
+      "client": "kika",
+      "_id": 4
+    }
+  ],
+  "dispensed": [
+    {
+      "host": "",
+      "commodities": [
+        {
+          "commodity": "METRONIDAZOLE",
+          "requested": 30,
+          "issued": 30
+        }
+      ],
+      "client": "JV",
+      "id": 1
+    },
+    {
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 30,
+          "issued": 30
+        }
+      ],
+      "client": "JV",
+      "id": 2
+    },
+    {
+      "host": "powerhouse",
+      "commodities": [
+        {
+          "commodity": "DICLOFENAC 50MG",
+          "requested": 60,
+          "issued": 60
+        }
+      ],
+      "client": "JV",
+      "id": 3
+    },
+    {
+      "host": "",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 90,
+          "issued": 90
+        }
+      ],
+      "client": "ARABTZ",
+      "id": 4
+    },
+    {
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "METRONIDAZOLE",
+          "requested": 20,
+          "issued": 20
+        }
+      ],
+      "client": "JV",
+      "id": 5
+    },
+    {
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "AZITHROMYCIN 500MG",
+          "requested": 30,
+          "issued": 30
+        }
+      ],
+      "client": "KIKA",
+      "id": 6
+    },
+    {
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "METRONIDAZOLE",
+          "requested": 50,
+          "issued": 50
+        },
+        {
+          "commodity": "AZITHROMYCIN 500MG",
+          "requested": 40,
+          "issued": 40
+        }
+      ],
+      "client": "JV",
+      "id": 7
+    },
+    {
+      "host": "saddledam",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 90,
+          "issued": 90
+        },
+        {
+          "commodity": "METRONIDAZOLE",
+          "requested": 80,
+          "issued": 80
+        }
+      ],
+      "client": "JV",
+      "id": 8
+    },
+    {
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "ALBENDAZOLE 400MG",
+          "requested": 30,
+          "issued": 30
+        }
+      ],
+      "client": "SINOHYDRO",
+      "id": 9
+    }
+  ],
+  "requests": [
+    {
+      "request_date": 1670792400000,
+      "destination": "powerhouse",
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 90,
+          "issued": 90
+        },
+        {
+          "commodity": "AZITHROMYCIN 500MG",
+          "requested": 80,
+          "issued": 80
+        }
+      ],
+      "isIssued": true,
+      "id": 1,
+      "issue_date": 1677335355041
+    },
+    {
+      "request_date": 1668114000000,
+      "destination": "powerhouse",
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 90,
+          "issued": 90
+        },
+        {
+          "commodity": "AZITHROMYCIN 500MG",
+          "requested": 80,
+          "issued": 80
+        }
+      ],
+      "isIssued": true,
+      "id": 2,
+      "issue_date": 1677335504629
+    },
+    {
+      "request_date": 1665349200000,
+      "destination": "powerhouse",
+      "host": "mainclinic",
+      "commodities": [
+        {
+          "commodity": "PARACETAMOL 500MG",
+          "requested": 90,
+          "issued": 90
+        },
+        {
+          "commodity": "AZITHROMYCIN 500MG",
+          "requested": 80,
+          "issued": 80
+        }
+      ],
+      "isIssued": true,
+      "id": 3,
+      "issue_date": 1677335533849
+    }
+  ],
+  "commodities": [
+    {
+      "commodity": "metronidazole",
+      "id": 1
+    },
+    {
+      "commodity": "paracetamol 500mg",
+      "id": 2
+    },
+    {
+      "commodity": "diclofenac 50mg",
+      "id": 3
+    },
+    {
+      "commodity": "azithromycin 500mg",
+      "id": 4
+    },
+    {
+      "commodity": "albendazole 400mg",
+      "id": 5
+    }
+  ],
+  "inventory": [
+    {
+      "store": "mainclinic",
+      "commodity": "paracetamol",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "metronidazole",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "loperamide",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "ceftriaxone",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "azithromycin",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    }
+  ]
+}

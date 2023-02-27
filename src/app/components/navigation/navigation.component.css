@@ -1,0 +1,19 @@
+nav {
+  height: 100%;
+  padding: 0.5vh;
+  display: flex;
+}
+button {
+  height: 100%;
+  flex: 1 1 auto;
+  margin: 2px;
+
+  background-color: black;
+  color: white;
+}
+button:hover {
+  background-color: cornflowerblue;
+}
+.clicked {
+  background-color: rgb(113, 225, 171);
+}

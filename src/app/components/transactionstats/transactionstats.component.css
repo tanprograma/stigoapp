@@ -1,0 +1,26 @@
+.dashboard {
+  background-color: rgb(217, 198, 198);
+  height: 100%;
+  overflow-y: scroll;
+}
+.dashboard::-webkit-scrollbar {
+  display: none;
+}
+table {
+  width: 80%;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.3vh;
+  margin-bottom: 0.3vh;
+}
+th,
+td {
+  text-align: left;
+}
+tbody tr:hover {
+  background-color: rgb(46, 203, 203);
+}
+thead tr th:nth-child(1) {
+  width: 20%;
+}

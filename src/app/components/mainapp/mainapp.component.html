@@ -1,0 +1,19 @@
+<div class="mainapp">
+  <app-home
+    *ngIf="view == homeView"
+    [views]="views"
+    [(view)]="view"
+    [clinicsView]="clinicsView"
+    [statisticsView]="statisticsView"
+    [outlets]="dataService.storeViews"
+    (sendOutlet)="setClinicView($event)"
+  ></app-home>
+  <div class="shop" *ngFor="let outlet of dataService.storeViews">
+    <app-shop
+      *ngIf="outlet == view"
+      [view]="view"
+      (returnHome)="returnHome($event)"
+    ></app-shop>
+  </div>
+  <!-- <div *ngIf="view.view == 'mainclinic'">hello there</div> -->
+</div>

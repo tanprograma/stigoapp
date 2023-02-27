@@ -1,0 +1,25 @@
+.statistics {
+  height: 85vh;
+  padding: 0.5vh;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.sidemenu {
+  flex: 0 0 15%;
+  background-color: aqua;
+}
+.sidemenubtn {
+  display: block;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.2vh;
+  margin-bottom: 0.2vh;
+  background-color: black;
+  color: white;
+}
+.statistic {
+  flex: 0 0 85%;
+  background-color: blueviolet;
+  padding: 0.5vh;
+}

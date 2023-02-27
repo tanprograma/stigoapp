@@ -1,0 +1,8 @@
+<div class="getshop">
+  <h4>select outlet</h4>
+  <div class="control" *ngFor="let outlet of outlets">
+    <button (click)="selectOutlet(outlet)">
+      {{ outlet.view | uppercase }}
+    </button>
+  </div>
+</div>

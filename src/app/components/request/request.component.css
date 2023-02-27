@@ -1,0 +1,65 @@
+.dispensecontainer {
+  height: 85vh;
+  padding: 0.5vh;
+  /* background-color: white; */
+  background-color: rgb(177, 215, 240);
+}
+
+.addremove {
+  height: 10%;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5vh;
+  display: flex;
+}
+.addremove button {
+  flex: 1 1 auto;
+}
+button.remove:hover {
+  background-color: red;
+  color: white;
+}
+form {
+  height: 90%;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid grey;
+  overflow-y: scroll;
+}
+form::-webkit-scrollbar {
+  display: none;
+}
+.client,
+.control,
+.submit {
+  width: 80%;
+  display: flex;
+  height: 4vh;
+  border: 1px solid grey;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.client label {
+  flex: 0 1 50%;
+  font-size: larger;
+  text-align: center;
+}
+
+.client label button {
+  height: 100%;
+  width: 100%;
+}
+.client input {
+  flex: 1 1 auto;
+}
+
+.control input {
+  flex: 1 1 auto;
+}
+.submit input {
+  flex: 1 1 auto;
+}

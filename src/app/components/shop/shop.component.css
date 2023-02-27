@@ -1,0 +1,9 @@
+.header {
+  height: 15vh;
+}
+.header .logo {
+  height: 80%;
+}
+.header .navigation {
+  height: 20%;
+}

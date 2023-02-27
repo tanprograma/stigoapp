@@ -1,0 +1,6 @@
+<nav>
+  <button *ngFor="let view of views" (click)="navClick(view)">
+    <fa-icon [icon]="view.icon"></fa-icon>
+    {{ view.view | uppercase }}
+  </button>
+</nav>

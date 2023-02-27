@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+/* .header {
+  height: 14vh;
+
+  background-color: rgb(155, 226, 202);
+}
+.body {
+  height: 86vh;
+  background-color: rgb(237, 224, 183);
+}
+.bodycomponent {
+  background-color: rgb(237, 224, 183);
+  height: 100%;
+} */

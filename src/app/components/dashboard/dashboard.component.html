@@ -1,0 +1,32 @@
+<div class="dashboard">
+  <table>
+    <thead>
+      <tr>
+        <th>medicines</th>
+        <th>available</th>
+        <th>beggining</th>
+        <th>received</th>
+        <th>issued</th>
+        <th>dispensed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of inventory">
+        <td>{{ item.commodity }}</td>
+
+        <td>
+          {{
+            item.beggining +
+              reduceSum(item.received) -
+              reduceSum(item.issued) -
+              reduceSum(item.dispensed)
+          }}
+        </td>
+        <td>{{ item.beggining }}</td>
+        <td>{{ reduceSum(item.received) }}</td>
+        <td>{{ reduceSum(item.issued) }}</td>
+        <td>{{ reduceSum(item.dispensed) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+<div class="statistics">
+  <div class="sidemenu">
+    <button
+      class="sidemenubtn"
+      *ngFor="let view of sidemenu"
+      (click)="setView(view)"
+    >
+      {{ view | uppercase }}
+    </button>
+  </div>
+  <div class="statistic">
+    <app-dispensedstats *ngIf="view == dispensedView"></app-dispensedstats>
+    <app-dashboard
+      [inventory]="data.inventory"
+      *ngIf="view == dashboardView"
+    ></app-dashboard>
+    <app-issuedstats
+      *ngIf="view == issuedView"
+      [issued]="issueService.issued"
+    ></app-issuedstats>
+
+    <!-- <app-dispensedstats></app-dispensedstats> -->
+    <!-- stats for dispensed -->
+    <!-- <app-transactionstats
+      [inventory]="getDispensed(data.inventory)"
+      *ngIf="view == dispensedView"
+    ></app-transactionstats> -->
+    <!-- end -->
+    <!-- stats for issued -->
+    <!-- <app-transactionstats
+      [inventory]="getIssued(data.inventory)"
+      *ngIf="view == issuedView"
+    ></app-transactionstats> -->
+    <!-- end -->
+    <!-- stats for received -->
+    <!-- <app-transactionstats
+      [inventory]="getReceived(data.inventory)"
+      *ngIf="view == receivedView"
+    ></app-transactionstats> -->
+    <!-- end -->
+  </div>
+</div>
