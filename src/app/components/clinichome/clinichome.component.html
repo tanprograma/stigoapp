@@ -1,0 +1,38 @@
+<header>
+  <div class="logo">
+    <app-logo [view]="viewService.view"></app-logo>
+  </div>
+
+  <div class="navigation"></div>
+  <div class="navigation">
+    <app-navigation
+      [views]="viewService.mainNavViews"
+      (setView)="setView($event)"
+    ></app-navigation>
+  </div>
+</header>
+<div class="body">
+  <!-- provides a way to manipulate the forms/selections -->
+  <app-select-wizard
+    [viewCollection]="outlets"
+    [heading]="'select a clinic'"
+    (sendView)="setOutlet($event)"
+  ></app-select-wizard>
+  <!-- <app-select-wizard
+    *ngIf="view == clinicsView"
+    [viewCollection]="outlets"
+    [heading]="'select a clinic'"
+    (sendView)="setOutlet($event)"
+  ></app-select-wizard>
+  <app-select-wizard
+    *ngIf="view == manageView"
+    [viewCollection]="collection"
+    [heading]="'select collection to manage'"
+    (sendView)="setOutlet($event)"
+  ></app-select-wizard> -->
+  <!-- end of form manipulators -->
+  <!-- <app-masterdashboard
+    *ngIf="view == viewService.homeView"
+    [inventories]="inventoryService.getSummary()"
+  ></app-masterdashboard> -->
+</div>

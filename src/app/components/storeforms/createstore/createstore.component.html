@@ -1,0 +1,25 @@
+<h3 class="heading">create store form</h3>
+<form (ngSubmit)="storeService.createStore(payload)">
+  <div class="label">
+    <label for="medicine">
+      <h4>enter store name</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      list="medicines"
+      name="medicine"
+      id="medicine"
+      [(ngModel)]="payload._name"
+    />
+    <datalist id="medicines">
+      <option
+        *ngFor="let item of storeService.stores"
+        value="{{ item._name }}"
+      ></option>
+    </datalist>
+  </div>
+  <div class="submit">
+    <input type="submit" value="CREATE ITEM" />
+  </div>
+</form>

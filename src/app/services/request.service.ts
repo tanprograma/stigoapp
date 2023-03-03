@@ -1,43 +1,87 @@
 import { Injectable } from '@angular/core';
-import { Request } from '../classes/request';
+import { Request, RequestItem } from '../types';
 import { HttpService } from './http.service';
 import { MainappserviceService } from './mainappservice.service';
+import { CommodityService } from './commodity.service';
+import { StoreService } from './store.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class RequestService {
-  url: string = 'http://localhost:8000/requests';
+  baseURL: string = 'http://localhost:5000/requests';
+  createURL: string = `${this.baseURL}/create`;
+  updateURL: string = `${this.baseURL}`;
+  requested!: Request[];
   request = new Request('');
   constructor(
-    private httpService: HttpService,
-    private appData: MainappserviceService
+    private commodityService: CommodityService,
+    private storeService: StoreService,
+    private httpService: HttpService
   ) {}
-  reset(host: string) {
-    this.request = new Request(host);
-    // this.request.destination = this.outletsService.outlet._id;
-  }
-  submitRequest(destination: string) {
-    // validate prescription
-    const isValid = this.validateRequest();
-    if (!isValid) return;
-    // dispense if valid
-    const payload = this.request.getPayload();
-    this.httpService.post(this.url, payload).subscribe((res: any) => {
-      console.log(res);
-    });
-    this.reset(destination);
-  }
 
-  validateRequest() {
-    // get hosts
-    const hosts = this.appData.stores.map((item: any) => {
-      return item.store.toLowerCase();
+  getRequested() {
+    this.httpService.get(this.baseURL).subscribe((res: Request[]) => {
+      this.requested = res.filter((item: Request) => {
+        return !item.isIssued;
+      });
+
+      // console.log(res);
     });
-    // get commodities
-    const commodities = this.appData.commodities.map((item: any) => {
-      return item.commodity;
+  }
+  submitRequest(prePayload: Request) {
+    const payload: Request = this.getPayload(prePayload);
+    this.httpService.post(this.createURL, payload).subscribe((res: Request) => {
+      this.requested.push(res);
     });
-    // validate commodities
-    return this.request.validate(hosts, commodities);
+  }
+  public getPayload(prePayload: Request) {
+    return {
+      host: this.storeService.getStoreID(prePayload.host),
+      items: this.transformItems(prePayload.items),
+      client: this.storeService.getStoreID(prePayload.client),
+      isIssued: false,
+    };
+  }
+  transformItems(items: RequestItem[]) {
+    items.forEach((reqItem: RequestItem) => {
+      reqItem.commodity = this.commodityService.getCommodityID(
+        reqItem.commodity
+      );
+    });
+    return items;
+  }
+  validate(request: Request) {
+    const isClient = this.validateHost(request.client);
+    console.log(`isClient:${isClient}`);
+    if (!isClient) return false;
+    const isitems = this.validateitems(request.items);
+    console.log(`isitems:${isitems}`);
+    if (!isitems) return false;
+    return true;
+  }
+  private validateHost(client: any) {
+    const found = this.storeService.getStoreID(client);
+    if (found != undefined) return true;
+    return false;
+  }
+  private validateitems(items: any) {
+    let isitems!: boolean;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      const isCommodity = this.commodityService.getCommodityID(item.commodity);
+      const isQuantity = item.requested > 0;
+      if (!isQuantity || isCommodity == undefined) {
+        isitems = false;
+        break;
+      }
+      isitems = true;
+    }
+    return isitems;
+  }
+  getIssued(filter: boolean) {
+    return this.requested.filter((item: Request) => {
+      return item.isIssued == filter;
+    });
   }
 }

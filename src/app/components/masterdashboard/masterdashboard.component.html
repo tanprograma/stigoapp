@@ -1,1 +1,32 @@
-<p>masterdashboard works!</p>
+<div class="dashboard">
+  <h3 class="heading">summary dashboard for site</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>medicines</th>
+        <th>available</th>
+        <th>beggining</th>
+        <th>received</th>
+
+        <th>dispensed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let inventory of statisticsService.getInventorySummary()">
+        <td>{{ inventory.commodity }}</td>
+
+        <td>
+          {{
+            inventory.beggining +
+              reduceSum(inventory.received) -
+              reduceSum(inventory.dispensed)
+          }}
+        </td>
+        <td>{{ inventory.beggining }}</td>
+        <td>{{ reduceSum(inventory.received) }}</td>
+
+        <td>{{ reduceSum(inventory.dispensed) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

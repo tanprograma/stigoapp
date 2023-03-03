@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Issue } from 'src/app/types';
+import { Request } from 'src/app/types';
 import { Input } from '@angular/core';
 @Component({
   selector: 'app-issuedstats',
@@ -7,11 +7,11 @@ import { Input } from '@angular/core';
   styleUrls: ['./issuedstats.component.css'],
 })
 export class IssuedstatsComponent implements OnInit {
-  @Input() issued!: Issue[];
+  @Input() issued!: any;
   constructor() {}
 
   ngOnInit(): void {}
-  inspect(issueItem: Issue) {
+  inspect(issueItem: any) {
     issueItem.inspect = !issueItem.inspect;
   }
   convertDate(date: number) {

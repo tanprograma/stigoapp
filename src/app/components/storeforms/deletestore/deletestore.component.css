@@ -1,0 +1,12 @@
+div {
+  background-color: black;
+  color: red;
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+}
+h1 {
+  flex: 1 1 100%;
+  text-align: center;
+}

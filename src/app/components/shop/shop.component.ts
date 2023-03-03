@@ -4,6 +4,7 @@ import { Input, Output, EventEmitter } from '@angular/core';
 import {
   faCog,
   faHome,
+  faArrowLeft,
   faChartBar,
   faCross,
   faShoppingBag,
@@ -18,16 +19,14 @@ export class ShopComponent implements OnInit {
   @Input() view!: View;
 
   @Output() returnHome = new EventEmitter<boolean>();
+  @Output() navigateHome = new EventEmitter<boolean>();
 
   dispenseView: View = { icon: faCog, view: 'dispense' };
   requestView: View = { icon: faCog, view: 'request' };
   chartsView: View = { icon: faCog, view: 'statistics' };
   issueView: View = { icon: faCog, view: 'issue' };
   homeView: View = { icon: faHome, view: 'home' };
-  // dispenseView: View = { icon: faPrescriptionBottle, view: 'dispense' };
-  // requestView: View = { icon: faShoppingBag, view: 'request' };
-  // chartsView: View = { icon: faChartBar, view: 'statistics' };
-  // issueView: View = { icon: faCross, view: 'issue' };
+  backView: View = { icon: faArrowLeft, view: 'back' };
 
   views: View[] = [
     this.homeView,
@@ -35,6 +34,7 @@ export class ShopComponent implements OnInit {
     this.requestView,
     this.issueView,
     this.chartsView,
+    this.backView,
   ];
   // *****end of views for home
   myView!: View;
@@ -45,15 +45,24 @@ export class ShopComponent implements OnInit {
       this.returnBack();
       return;
     }
+    if (view == this.backView) {
+      this.navigateBack();
+      return;
+    }
     console.log('...in shop');
     console.log(view);
     this.transformView(view);
   }
+  // the homepage
   returnBack() {
     this.returnHome.emit(true);
   }
+  // same app
+  navigateBack() {
+    this.navigateHome.emit(true);
+  }
   transformView(view: View) {
-    this, (this.secondaryView = view);
+    this.secondaryView = view;
     this.isMyView = true;
     this.myView = { icon: view.icon, view: `${this.view.view}/${view.view}` };
 
@@ -65,7 +74,9 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
     this.myView = {
       icon: this.dispenseView.icon,
-      view: `${this.view.view}/${this.dispenseView.view}`,
+      view: `${this.view.view}/${this.chartsView.view}`,
     };
+    console.log(this.view);
+    console.log(this.myView);
   }
 }

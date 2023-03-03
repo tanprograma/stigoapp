@@ -1,0 +1,24 @@
+<div class="dashboard">
+  <h3 class="heading">summary dashboard for site</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>medicines</th>
+        <th>total dispensed</th>
+        <th *ngFor="let clinic of clinics">{{ clinic }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.commodity }}</td>
+
+        <td>
+          {{ getSum(item.data) }}
+        </td>
+        <td *ngFor="let dispensedItem of item.data">
+          {{ reduceSum(dispensedItem.dispensed) }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

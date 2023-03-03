@@ -1,56 +1,48 @@
 {
   "stores": [
     {
-      "store": "mainclinic",
+      "_name": "mainclinic",
       "_id": 1
     },
     {
-      "store": "rightbank",
+      "_name": "powerhouse",
       "_id": 2
     },
     {
-      "store": "powerhouse",
-      "_id": 3
+      "_name": "saddledam",
+      "id": 3
     },
     {
-      "store": "saddledam",
-      "_id": 4
-    },
-    {
-      "store": "material control",
-      "_id": 5,
+      "_name": "material control",
+      "_id": 4,
       "isWarehouse": true
     }
   ],
   "clients": [
     {
-      "client": "jv",
+      "_name": "jv",
       "_id": 1
     },
     {
-      "client": "arabtz",
+      "_name": "arabtz",
       "_id": 2
     },
     {
-      "client": "sinohydro",
+      "_name": "sinohydro",
       "_id": 3
-    },
-    {
-      "client": "kika",
-      "_id": 4
     }
   ],
   "dispensed": [
     {
-      "host": "",
+      "host": "mainclinic",
       "commodities": [
         {
-          "commodity": "METRONIDAZOLE",
+          "commodity": "metronidazole",
           "requested": 30,
           "issued": 30
         }
       ],
-      "client": "JV",
+      "client": "jv",
       "id": 1
     },
     {
@@ -169,15 +161,15 @@
         {
           "commodity": "PARACETAMOL 500MG",
           "requested": 90,
-          "issued": 90
+          "issued": 0
         },
         {
           "commodity": "AZITHROMYCIN 500MG",
           "requested": 80,
-          "issued": 80
+          "issued": 0
         }
       ],
-      "isIssued": true,
+      "isIssued": false,
       "id": 1,
       "issue_date": 1677335355041
     },
@@ -189,15 +181,15 @@
         {
           "commodity": "PARACETAMOL 500MG",
           "requested": 90,
-          "issued": 90
+          "issued": 0
         },
         {
           "commodity": "AZITHROMYCIN 500MG",
           "requested": 80,
-          "issued": 80
+          "issued": 0
         }
       ],
-      "isIssued": true,
+      "isIssued": false,
       "id": 2,
       "issue_date": 1677335504629
     },
@@ -224,140 +216,1128 @@
   ],
   "commodities": [
     {
-      "commodity": "metronidazole",
+      "_name": "paracetamol",
       "id": 1
     },
     {
-      "commodity": "paracetamol 500mg",
-      "id": 2
+      "_name": "ceftriaxone",
+      "_id": 2
     },
     {
-      "commodity": "diclofenac 50mg",
-      "id": 3
+      "_name": "azithromycin",
+      "_id": 3
     },
     {
-      "commodity": "azithromycin 500mg",
-      "id": 4
+      "_name": "loperamide",
+      "_id": 4
     },
     {
-      "commodity": "albendazole 400mg",
-      "id": 5
+      "_name": "cefixime",
+      "_id": 5
+    },
+    {
+      "_name": "ceftazidime",
+      "_id": 6
+    },
+    {
+      "_name": "metronidazole",
+      "_id": 7
     }
   ],
   "inventory": [
     {
-      "store": "mainclinic",
-      "commodity": "paracetamol",
+      "store": 1,
+      "commodity": 1,
       "beggining": 300,
       "dispensed": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "issued": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "received": [
-        { "date": 1665349200000, "quantity": 200 },
-        { "date": 1668114000000, "quantity": 300 },
-        { "date": 1662670800000, "quantity": 400 },
-        { "date": 1659906000000, "quantity": 500 }
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
       ]
     },
     {
-      "store": "mainclinic",
-      "commodity": "metronidazole",
+      "store": 4,
+      "commodity": 1,
       "beggining": 300,
-      "dispensed": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
-      ],
+      "dispensed": [],
       "issued": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "received": [
-        { "date": 1665349200000, "quantity": 200 },
-        { "date": 1668114000000, "quantity": 300 },
-        { "date": 1662670800000, "quantity": 400 },
-        { "date": 1659906000000, "quantity": 500 }
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
       ]
     },
     {
-      "store": "mainclinic",
-      "commodity": "loperamide",
+      "store": 2,
+      "commodity": 1,
       "beggining": 300,
       "dispensed": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "issued": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "received": [
-        { "date": 1665349200000, "quantity": 200 },
-        { "date": 1668114000000, "quantity": 300 },
-        { "date": 1662670800000, "quantity": 400 },
-        { "date": 1659906000000, "quantity": 500 }
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
       ]
     },
     {
-      "store": "mainclinic",
-      "commodity": "ceftriaxone",
+      "store": 3,
+      "commodity": 1,
       "beggining": 300,
       "dispensed": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "issued": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "received": [
-        { "date": 1665349200000, "quantity": 200 },
-        { "date": 1668114000000, "quantity": 300 },
-        { "date": 1662670800000, "quantity": 400 },
-        { "date": 1659906000000, "quantity": 500 }
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
       ]
     },
     {
-      "store": "mainclinic",
-      "commodity": "azithromycin",
+      "store": 1,
+      "commodity": 7,
       "beggining": 300,
       "dispensed": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "issued": [
-        { "date": 1665349200000, "quantity": 20 },
-        { "date": 1668114000000, "quantity": 30 },
-        { "date": 1662670800000, "quantity": 40 },
-        { "date": 1659906000000, "quantity": 50 }
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
       ],
       "received": [
-        { "date": 1665349200000, "quantity": 200 },
-        { "date": 1668114000000, "quantity": 300 },
-        { "date": 1662670800000, "quantity": 400 },
-        { "date": 1659906000000, "quantity": 500 }
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 4,
+      "commodity": 7,
+      "beggining": 300,
+      "dispensed": [],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 2,
+      "commodity": 7,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 3,
+      "commodity": 7,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 1,
+      "commodity": 4,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 4,
+      "commodity": 4,
+      "beggining": 300,
+      "dispensed": [],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 2,
+      "commodity": 4,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 3,
+      "commodity": 4,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 1,
+      "commodity": 2,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 4,
+      "commodity": 2,
+      "beggining": 300,
+      "dispensed": [],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 2,
+      "commodity": 2,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 3,
+      "commodity": 2,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 1,
+      "commodity": 3,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 4,
+      "commodity": 3,
+      "beggining": 300,
+      "dispensed": [],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 2,
+      "commodity": 3,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
+      ]
+    },
+    {
+      "store": 3,
+      "commodity": 3,
+      "beggining": 300,
+      "dispensed": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "issued": [
+        {
+          "date": 1665349200000,
+          "quantity": 20
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 30
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 40
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 50
+        }
+      ],
+      "received": [
+        {
+          "date": 1665349200000,
+          "quantity": 200
+        },
+        {
+          "date": 1668114000000,
+          "quantity": 300
+        },
+        {
+          "date": 1662670800000,
+          "quantity": 400
+        },
+        {
+          "date": 1659906000000,
+          "quantity": 500
+        }
       ]
     }
   ]

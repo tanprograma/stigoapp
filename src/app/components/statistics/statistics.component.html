@@ -11,7 +11,7 @@
   <div class="statistic">
     <app-dispensedstats *ngIf="view == dispensedView"></app-dispensedstats>
     <app-dashboard
-      [inventory]="data.inventory"
+      [inventory]="statisticsService.getStoreInventorySummary(clinic)"
       *ngIf="view == dashboardView"
     ></app-dashboard>
     <app-issuedstats

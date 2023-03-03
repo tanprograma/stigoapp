@@ -1,0 +1,8 @@
+<div class="getView">
+  <h4>{{ heading }}</h4>
+  <div class="control" *ngFor="let viewItem of viewCollection">
+    <button (click)="selectView(viewItem)">
+      {{ viewItem | uppercase }}
+    </button>
+  </div>
+</div>

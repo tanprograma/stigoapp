@@ -1,0 +1,25 @@
+<div class="clinichome" *ngIf="view == home">
+  <app-managehome
+    [outlets]="getItems()"
+    (emitOutlet)="view = $event"
+  ></app-managehome>
+</div>
+
+<app-managestore
+  *ngIf="view == storesItem"
+  [view]="{ view: view, icon: faCross }"
+  (returnHome)="returnHome($event)"
+  (navigateHome)="view = home"
+></app-managestore>
+<app-manageclient
+  *ngIf="view == clientsItem"
+  [view]="{ view: view, icon: faCross }"
+  (returnHome)="returnHome($event)"
+  (navigateHome)="view = home"
+></app-manageclient>
+<app-managecommodity
+  *ngIf="view == commoditiesItem"
+  [view]="{ view: view, icon: faCross }"
+  (returnHome)="returnHome($event)"
+  (navigateHome)="view = home"
+></app-managecommodity>

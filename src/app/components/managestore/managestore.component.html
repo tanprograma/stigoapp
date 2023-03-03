@@ -1,0 +1,18 @@
+<header>
+  <div class="logo">
+    <app-logo [view]="isMyView ? myView : view"></app-logo>
+  </div>
+
+  <div class="navigation">
+    <app-navigation
+      [views]="views"
+      (setView)="setView($event)"
+    ></app-navigation>
+  </div>
+</header>
+<div class="body">
+  <!-- <app-statistics></app-statistics> -->
+  <!-- <app-createstore></app-createstore> -->
+  <!-- <app-updatestore></app-updatestore> -->
+  <app-deletestore></app-deletestore>
+</div>

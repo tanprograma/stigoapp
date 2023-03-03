@@ -1,5 +1,5 @@
 <div class="issue">
-  <div class="issue-container" *ngFor="let item of appData.requested">
+  <div class="issue-container" *ngFor="let item of requests">
     <div class="primary">
       <table>
         <thead>
@@ -15,10 +15,10 @@
         <tbody>
           <tr>
             <td>{{ convertDate(item.request_date) }}</td>
-            <td>{{ item.id }}</td>
-            <td>{{ item.host }}</td>
-            <td>{{ item.destination }}</td>
-            <td>{{ item.commodities.length }}</td>
+            <td>{{ item._id }}</td>
+            <td>{{ issueService.getStoreName(item.host) }}</td>
+            <td>{{ issueService.getStoreName(item.client) }}</td>
+            <td>{{ item.items.length }}</td>
             <th>{{ item.isIssued ? "issued" : "pending" }}</th>
           </tr>
         </tbody>
@@ -28,8 +28,11 @@
       <button class="inspectbtn" (click)="inspect(item)">
         {{ item.inspect ? "CLOSE" : "INSPECT" }}
       </button>
-      <button class="issuebtn" (click)="IssueService.postIssue(item)">
+      <button class="issuebtn" (click)="issueService.postIssue(item)">
         ISSUE
+      </button>
+      <button class="issueallbtn" (click)="issueService.issueAll(item)">
+        ISSUE ALL
       </button>
     </div>
     <div class="primary tertiary" *ngIf="item.inspect">

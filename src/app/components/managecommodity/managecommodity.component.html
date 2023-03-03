@@ -1,0 +1,24 @@
+<header>
+  <div class="logo">
+    <app-logo [view]="isMyView ? myView : view"></app-logo>
+  </div>
+
+  <div class="navigation">
+    <app-navigation
+      [views]="views"
+      (setView)="setView($event)"
+    ></app-navigation>
+  </div>
+</header>
+<div class="body">
+  <!-- <app-statistics></app-statistics> -->
+  <app-createcommodity
+    *ngIf="secondaryView == createView"
+  ></app-createcommodity>
+  <app-updatecommodity
+    *ngIf="secondaryView == updateView"
+  ></app-updatecommodity>
+  <app-deletecommodity
+    *ngIf="secondaryView == deleteView"
+  ></app-deletecommodity>
+</div>

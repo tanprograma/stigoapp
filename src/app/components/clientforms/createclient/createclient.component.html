@@ -1,0 +1,25 @@
+<h3 class="heading">create client form</h3>
+<form (ngSubmit)="clientService.createClient(payload)">
+  <div class="label">
+    <label for="medicine">
+      <h4>enter client name</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      list="medicines"
+      name="medicine"
+      id="medicine"
+      [(ngModel)]="payload._name"
+    />
+    <datalist id="medicines">
+      <option
+        *ngFor="let item of clientService.clients"
+        value="{{ item._name }}"
+      ></option>
+    </datalist>
+  </div>
+  <div class="submit">
+    <input type="submit" value="CREATE ITEM" />
+  </div>
+</form>

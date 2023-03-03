@@ -1,43 +1,78 @@
 import { Injectable } from '@angular/core';
-import { Prescription } from '../classes/prescription';
+
 import { HttpService } from './http.service';
-import { MainappserviceService } from './mainappservice.service';
-import { Commodity, Client } from '../types';
+import { CommodityService } from './commodity.service';
+import { StoreService } from './store.service';
+import { ClientService } from './client.service';
+import { Commodity, Client, Request, RequestItem } from '../types';
+
 @Injectable({
   providedIn: 'root',
 })
 export class PrescriptionService {
-  url: string = 'http://localhost:8000/dispensed';
-  prescription = new Prescription('');
+  baseURL: string = 'http://localhost:5000/prescriptions/';
+  createURL: string = `${this.baseURL}/create`;
+  dispensed!: Request[];
+
   constructor(
     private httpService: HttpService,
-    private appData: MainappserviceService
+    private storeService: StoreService,
+    private commodityService: CommodityService,
+    private clientService: ClientService
   ) {}
-  reset(host: string) {
-    this.prescription = new Prescription(host);
+  getPrescriptions() {
+    this.httpService.get(this.baseURL).subscribe((res: Request[]) => {
+      this.dispensed = res;
+    });
   }
-  submitPrescription(host: string) {
-    // validate prescription
-    const isValid = this.validatePrescription();
-    if (!isValid) return;
-    // dispense if valid
-    const payload = this.prescription.getPayload();
-    this.httpService.post(this.url, payload).subscribe((res: any) => {
-      console.log(res);
+  submitPrescription(prePayload: Request) {
+    const payload: Request = this.getPayload(prePayload);
+    this.httpService.post(this.createURL, payload).subscribe((res: Request) => {
+      this.dispensed.push(res);
     });
-    this.reset(host);
   }
-
-  validatePrescription() {
-    // get clients
-    const clients = this.appData.clients.map((item: Client) => {
-      return item.client.toLowerCase();
+  public getPayload(prePayload: Request) {
+    return {
+      host: this.storeService.getStoreID(prePayload.host),
+      items: this.transformItems(prePayload.items),
+      client: this.clientService.getClientID(prePayload.client),
+      isIssued: true,
+    };
+  }
+  transformItems(items: RequestItem[]) {
+    items.forEach((reqItem: RequestItem) => {
+      reqItem.commodity = this.commodityService.getCommodityID(
+        reqItem.commodity
+      );
     });
-    // get commodities
-    const commodities = this.appData.commodities.map((item: Commodity) => {
-      return item.commodity;
-    });
-    // validate commodities
-    return this.prescription.validate(clients, commodities);
+    return items;
+  }
+  validate(request: Request) {
+    const isClient = this.validateClient(request.client);
+    console.log(`isClient:${isClient}`);
+    if (!isClient) return false;
+    const isitems = this.validateitems(request.items);
+    console.log(`isitems:${isitems}`);
+    if (!isitems) return false;
+    return true;
+  }
+  private validateClient(client: any) {
+    const found = this.clientService.getClientID(client);
+    if (found != undefined) return true;
+    return false;
+  }
+  private validateitems(items: any) {
+    let isitems!: boolean;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      const isCommodity = this.commodityService.getCommodityID(item.commodity);
+      const isQuantity = item.requested > 0;
+      if (!isQuantity || isCommodity == undefined) {
+        isitems = false;
+        break;
+      }
+      isitems = true;
+    }
+    return isitems;
   }
 }

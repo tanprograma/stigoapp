@@ -1,0 +1,24 @@
+{
+  "commodities": [
+    {
+      "commodity": "metronidazole",
+      "id": 1
+    },
+    {
+      "commodity": "paracetamol",
+      "id": 2
+    },
+    {
+      "commodity": "ceftriaxone",
+      "id": 3
+    },
+    {
+      "commodity": "azithromycin",
+      "id": 4
+    },
+    {
+      "commodity": "loperamide",
+      "id": 5
+    }
+  ]
+}

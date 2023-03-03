@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Input, Output, EventEmitter } from '@angular/core';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { View, Store } from 'src/app/types';
 
+import { ViewService } from 'src/app/services/view.service';
+
+import { View } from 'src/app/types';
+import { InventoryService } from 'src/app/services/inventory.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  @Input() views!: View[];
-  @Input() view!: View;
-  @Input() clinicsView!: View;
-  @Input() statisticsView!: View;
-  @Input() outlets!: View[];
-  @Output() viewChange = new EventEmitter<View>();
-  @Output() sendOutlet = new EventEmitter<View>();
-  // view: View = { icon: faHome, view: 'homepage' };
+  view!: View;
 
   setView(view: View) {
-    if (view == this.clinicsView) {
+    // prevents emission of these views
+    if (view == this.viewService.homeView) {
       this.view = view;
       return;
     }
-    this.view = view;
-    this.viewChange.emit(this.view);
-  }
-  setOutlet(outlet: View) {
-    this.sendOutlet.emit(outlet);
-  }
-  constructor() {}
 
-  ngOnInit(): void {}
+    this.viewService.setView(view);
+
+    // this.viewChange.emit(this.view);
+  }
+
+  constructor(
+    public inventoryService: InventoryService,
+    public viewService: ViewService
+  ) {}
+
+  ngOnInit(): void {
+    this.viewService.view = this.viewService.homeView;
+    // this.view = this.viewService.homeView;
+  }
 }

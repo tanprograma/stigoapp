@@ -1,0 +1,21 @@
+<header>
+  <div class="logo">
+    <app-logo [view]="viewService.view"></app-logo>
+  </div>
+
+  <div class="navigation"></div>
+  <div class="navigation">
+    <app-navigation
+      [views]="viewService.mainNavViews"
+      (setView)="setView($event)"
+    ></app-navigation>
+  </div>
+</header>
+<div class="body">
+  <!-- provides a way to manipulate the forms/selections -->
+  <app-select-wizard
+    [viewCollection]="outlets"
+    [heading]="'select a statistic to view'"
+    (sendView)="setOutlet($event)"
+  ></app-select-wizard>
+</div>

@@ -1,0 +1,28 @@
+.heading {
+  text-align: center;
+  text-decoration: underline;
+}
+form {
+  height: 95%;
+  background-color: rgb(210, 187, 187);
+  width: 80%;
+  margin: auto;
+  margin-right: auto;
+}
+div {
+  width: 50%;
+  margin: auto;
+  margin-right: auto;
+  height: 5vh;
+  margin-top: 0.3vh;
+  margin-bottom: 0.3vh;
+}
+div input,
+div label {
+  height: 100%;
+  width: 100%;
+}
+label {
+  padding-top: 1vh;
+  display: flex;
+}

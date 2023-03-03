@@ -1,0 +1,40 @@
+<h3 class="heading">update store form</h3>
+<form (ngSubmit)="storeService.updateStore(payload)">
+  <div class="label">
+    <label for="medicine">
+      <h4>select store</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      list="stores"
+      name="medicine"
+      id="medicine"
+      [(ngModel)]="payload._name"
+      (ngModelChange)="setUpdated()"
+      autocomplete="off"
+    />
+    <datalist id="stores">
+      <option
+        *ngFor="let item of storeService.stores"
+        value="{{ item._name }}"
+      ></option>
+    </datalist>
+  </div>
+  <div class="label">
+    <label for="updates">
+      <h4>updated form</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      type="text"
+      name="updated"
+      id="updated"
+      [(ngModel)]="payload.updated"
+    />
+  </div>
+  <div class="submit">
+    <input type="submit" value="UPDATE ITEM" />
+  </div>
+</form>

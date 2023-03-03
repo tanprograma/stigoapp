@@ -10,7 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ShopComponent } from './components/shop/shop.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { GetshopComponent } from './components/getshop/getshop.component';
+
 import { MainappComponent } from './components/mainapp/mainapp.component';
 import { PrescriptionComponent } from './components/prescription/prescription.component';
 import { IssueComponent } from './components/issue/issue.component';
@@ -24,6 +24,40 @@ import { TransactionstatsComponent } from './components/transactionstats/transac
 import { TableDataComponent } from './components/table-data/table-data.component';
 import { MasterdashboardComponent } from './components/masterdashboard/masterdashboard.component';
 
+import { SelectWizardComponent } from './components/select-wizard/select-wizard.component';
+import { ManagestoreComponent } from './components/managestore/managestore.component';
+import { ManagecommodityComponent } from './components/managecommodity/managecommodity.component';
+import { ManageclientComponent } from './components/manageclient/manageclient.component';
+import { CreatestoreComponent } from './components/storeforms/createstore/createstore.component';
+import { CreatecommodityComponent } from './components/commodity/createcommodity/createcommodity.component';
+import { UpdatecommodityComponent } from './components/commodity/updatecommodity/updatecommodity.component';
+import { DeletecollectionComponent } from './components/deletecollection/deletecollection.component';
+import { DeletecommodityComponent } from './components/commodity/deletecommodity/deletecommodity.component';
+import { UpdatestoreComponent } from './components/storeforms/updatestore/updatestore.component';
+import { DeletestoreComponent } from './components/storeforms/deletestore/deletestore.component';
+import { CreateclientComponent } from './components/clientforms/createclient/createclient.component';
+import { UpdateclientComponent } from './components/clientforms/updateclient/updateclient.component';
+import { DeleteclientComponent } from './components/clientforms/deleteclient/deleteclient.component';
+import { ClinicsComponent } from './components/clinics/clinics.component';
+
+import { ClinichomeComponent } from './components/clinichome/clinichome.component';
+import { ManageComponent } from './components/manage/manage.component';
+import { ManagehomeComponent } from './components/managehome/managehome.component';
+import { DeepstatisticComponent } from './components/deepstatistic/deepstatistic.component';
+import { DeepdispensedComponent } from './components/deepdispensed/deepdispensed.component';
+import { MasterstatisticsComponent } from './components/masterstatistics/masterstatistics.component';
+import { MasterstatisticshomeComponent } from './components/masterstatisticshome/masterstatisticshome.component';
+import { DashboardchartComponent } from './components/charts/dashboardchart/dashboardchart.component';
+import { MasterdashboarddetailedComponent } from './components/masterdashboarddetailed/masterdashboarddetailed.component';
+
+import { DispensedchartComponent } from './components/charts/dispensedchart/dispensedchart.component';
+import { ReceivedchartComponent } from './components/charts/receivedchart/receivedchart.component';
+
+import { MasterdispenseddashboardComponent } from './components/masterdispenseddashboard/masterdispenseddashboard.component';
+import { MasterreceiveddashboardComponent } from './components/masterreceiveddashboard/masterreceiveddashboard.component';
+import { MasterdispenseddetailedComponent } from './components/masterdispenseddetailed/masterdispenseddetailed.component';
+import { MasterreceiveddetailedComponent } from './components/masterreceiveddetailed/masterreceiveddetailed.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +65,7 @@ import { MasterdashboardComponent } from './components/masterdashboard/masterdas
     ShopComponent,
     LogoComponent,
     NavigationComponent,
-    GetshopComponent,
+
     MainappComponent,
     PrescriptionComponent,
     IssueComponent,
@@ -42,8 +76,42 @@ import { MasterdashboardComponent } from './components/masterdashboard/masterdas
     DispensedstatsComponent,
 
     TransactionstatsComponent,
-     TableDataComponent,
-     MasterdashboardComponent,
+    TableDataComponent,
+    MasterdashboardComponent,
+
+    SelectWizardComponent,
+    ManagestoreComponent,
+    ManagecommodityComponent,
+    ManageclientComponent,
+    CreatestoreComponent,
+    CreatecommodityComponent,
+    UpdatecommodityComponent,
+    DeletecollectionComponent,
+    DeletecommodityComponent,
+    UpdatestoreComponent,
+    DeletestoreComponent,
+    CreateclientComponent,
+    UpdateclientComponent,
+    DeleteclientComponent,
+    ClinicsComponent,
+
+    ClinichomeComponent,
+    ManageComponent,
+    ManagehomeComponent,
+    DeepstatisticComponent,
+    DeepdispensedComponent,
+    MasterstatisticsComponent,
+    MasterstatisticshomeComponent,
+    DashboardchartComponent,
+    MasterdashboarddetailedComponent,
+
+    DispensedchartComponent,
+    ReceivedchartComponent,
+
+    MasterdispenseddashboardComponent,
+    MasterreceiveddashboardComponent,
+    MasterdispenseddetailedComponent,
+    MasterreceiveddetailedComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, FontAwesomeModule],
   providers: [],

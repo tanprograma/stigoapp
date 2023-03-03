@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory.service';
+import { StatisticsService } from 'src/app/services/statistics.service';
 import { MainappserviceService } from 'src/app/services/mainappservice.service';
 import { MainappComponent } from '../mainapp/mainapp.component';
-import { TranItem, InventoryItem } from 'src/app/types';
+import { Transaction, Inventory } from 'src/app/types';
 import { IssueService } from 'src/app/services/issue.service';
+import { Input } from '@angular/core';
 @Component({
   selector: 'app-statistics',
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.css'],
 })
 export class StatisticsComponent implements OnInit {
+  @Input() clinic!: string;
   dashboardView: string = 'dashboard';
   dispensedView: string = 'dispensed';
   issuedView: string = 'issued';
@@ -22,22 +25,22 @@ export class StatisticsComponent implements OnInit {
     this.receivedView,
   ];
   constructor(
-    public data: InventoryService,
-    public appData: MainappserviceService,
+    public statisticsService: StatisticsService,
+    public mainAppService: MainappserviceService,
     public issueService: IssueService
   ) {}
 
   ngOnInit(): void {
-    this.issueService.getIssued();
+    this.issueService.getIssued(true);
   }
   setView(view: string) {
     this.view = view;
   }
-  sortTransaction(transaction: TranItem[]) {
+  sortTransaction(transaction: Transaction[]) {
     const dates: number[] = [];
     const quantities: number[] = [];
     transaction
-      .sort((item1: TranItem, item2: TranItem) => {
+      .sort((item1: Transaction, item2: Transaction) => {
         if (item1.date > item2.date) {
           return 1;
         }
@@ -46,7 +49,7 @@ export class StatisticsComponent implements OnInit {
         }
         return 0;
       })
-      .forEach((item: TranItem) => {
+      .forEach((item: Transaction) => {
         dates.push(item.date);
         quantities.push(item.quantity);
       });
@@ -57,8 +60,8 @@ export class StatisticsComponent implements OnInit {
     };
   }
 
-  getReceived(inventory: InventoryItem[]): TransactionStat[] {
-    return inventory.map((item: InventoryItem) => {
+  getReceived(inventory: Inventory[]): TransactionStat[] {
+    return inventory.map((item: Inventory) => {
       let { commodity, received } = item;
       const transaction = this.sortTransaction(received);
       return {
@@ -67,8 +70,8 @@ export class StatisticsComponent implements OnInit {
       };
     });
   }
-  getIssued(inventory: InventoryItem[]): TransactionStat[] {
-    return inventory.map((item: InventoryItem) => {
+  getIssued(inventory: Inventory[]): TransactionStat[] {
+    return inventory.map((item: Inventory) => {
       let { commodity, issued } = item;
       const transaction = this.sortTransaction(issued);
       return {
@@ -77,8 +80,8 @@ export class StatisticsComponent implements OnInit {
       };
     });
   }
-  getDispensed(inventory: InventoryItem[]): TransactionStat[] {
-    return inventory.map((item: InventoryItem) => {
+  getDispensed(inventory: Inventory[]): TransactionStat[] {
+    return inventory.map((item: Inventory) => {
       let { commodity, dispensed } = item;
       const transaction = this.sortTransaction(dispensed);
       return {

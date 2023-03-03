@@ -14,6 +14,9 @@ export class HttpService {
   get(url: string): Observable<any> {
     return this.http.get(url);
   }
+  delete(url: string): Observable<any> {
+    return this.http.delete(url);
+  }
 
   post(url: string, course: any): Observable<any> {
     return this.http.post(url, JSON.stringify(course), httpOptions);

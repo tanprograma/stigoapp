@@ -1,20 +1,16 @@
 <header>
   <div class="logo">
-    <app-logo [view]="view"></app-logo>
+    <app-logo [view]="viewService.view"></app-logo>
   </div>
 
   <div class="navigation"></div>
   <div class="navigation">
     <app-navigation
-      [views]="views"
+      [views]="viewService.mainNavViews"
       (setView)="setView($event)"
     ></app-navigation>
   </div>
 </header>
 <div class="body">
-  <app-getshop
-    *ngIf="view == clinicsView"
-    [outlets]="outlets"
-    (sendOutlet)="setOutlet($event)"
-  ></app-getshop>
+  <app-masterdashboard></app-masterdashboard>
 </div>

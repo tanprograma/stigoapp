@@ -1,0 +1,40 @@
+<h3 class="heading">update form</h3>
+<form (ngSubmit)="commodityService.updateCommodity(payload)">
+  <div class="label">
+    <label for="medicine">
+      <h4>select medicine</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      list="medicines"
+      name="medicine"
+      id="medicine"
+      [(ngModel)]="payload.medicine"
+      (ngModelChange)="setUpdated()"
+      autocomplete="off"
+    />
+    <datalist id="medicines">
+      <option
+        *ngFor="let item of commodityService.commodities"
+        value="{{ item._name }}"
+      ></option>
+    </datalist>
+  </div>
+  <div class="label">
+    <label for="updates">
+      <h4>updated form</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input
+      type="text"
+      name="updated"
+      id="updated"
+      [(ngModel)]="payload.updated"
+    />
+  </div>
+  <div class="submit">
+    <input type="submit" value="UPDATE ITEM" />
+  </div>
+</form>

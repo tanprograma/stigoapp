@@ -1,0 +1,73 @@
+<div class="dashboard">
+  <h3 class="heading">summary dashboard for site</h3>
+  <div class="issue">
+    <div class="issue-container" *ngFor="let item of data">
+      <div class="primary">
+        <table>
+          <thead>
+            <tr>
+              <th>medicines</th>
+              <th>total dispensed</th>
+              <th *ngFor="let clinic of clinics">{{ clinic }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ item.commodity }}</td>
+
+              <td>
+                {{ getSum(item.data) }}
+              </td>
+              <td *ngFor="let dispensedItem of item.data">
+                {{ reduceSum(dispensedItem.dispensed) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="secondary">
+        <button class="inspectbtn" (click)="inspect(item)">
+          {{ item.inspect ? "CLOSE" : "VIEW DETAILS" }}
+        </button>
+      </div>
+      <div class="primary tertiary" *ngIf="item.inspect">
+        <table>
+          <thead>
+            <tr>
+              <th>date</th>
+              <th>dispensed</th>
+              <th *ngFor="let clinic of clinics">{{ clinic }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let date of statisticsService.getDispensedDates(item.data)
+              "
+            >
+              <td>{{ getDateString(date) }}</td>
+
+              <td>
+                {{
+                  getSum(statisticsService.getDispensedOnDate(date, item.data))
+                }}
+              </td>
+              <td
+                *ngFor="
+                  let dataItem of statisticsService.getDispensedOnDate(
+                    date,
+                    item.data
+                  )
+                "
+              >
+                {{ reduceSum(dataItem.dispensed) }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- hfhfjhj -->
+</div>

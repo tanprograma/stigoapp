@@ -1,0 +1,20 @@
+<h3 class="heading">delete form</h3>
+<form (ngSubmit)="commodityService.deleteCommodity(_name)">
+  <div class="label">
+    <label for="medicine">
+      <h4>select medicine</h4>
+    </label>
+  </div>
+  <div class="input">
+    <input list="medicines" name="medicine" id="medicine" [(ngModel)]="_name" />
+  </div>
+  <datalist id="medicines">
+    <option
+      *ngFor="let item of commodityService.commodities"
+      value="{{ item._name }}"
+    ></option>
+  </datalist>
+  <div class="submit">
+    <input type="submit" value="CREATE ITEM" />
+  </div>
+</form>

@@ -1,0 +1,464 @@
+{
+  "inventory": [
+    {
+      "store": "mainclinic",
+      "commodity": "paracetamol",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "material control",
+      "commodity": "paracetamol",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "powerhouse",
+      "commodity": "paracetamol",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "saddledam",
+      "commodity": "paracetamol",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "metronidazole",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "material control",
+      "commodity": "metronidazole",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "powerhouse",
+      "commodity": "metronidazole",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "saddledam",
+      "commodity": "metronidazole",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "loperamide",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "material control",
+      "commodity": "loperamide",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "powerhouse",
+      "commodity": "loperamide",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "saddledam",
+      "commodity": "loperamide",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "ceftriaxone",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "material control",
+      "commodity": "ceftriaxone",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "powerhouse",
+      "commodity": "ceftriaxone",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "saddledam",
+      "commodity": "ceftriaxone",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "mainclinic",
+      "commodity": "azithromycin",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "material control",
+      "commodity": "azithromycin",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "powerhouse",
+      "commodity": "azithromycin",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    },
+    {
+      "store": "saddledam",
+      "commodity": "azithromycin",
+      "beggining": 300,
+      "dispensed": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "issued": [
+        { "date": 1665349200000, "quantity": 20 },
+        { "date": 1668114000000, "quantity": 30 },
+        { "date": 1662670800000, "quantity": 40 },
+        { "date": 1659906000000, "quantity": 50 }
+      ],
+      "received": [
+        { "date": 1665349200000, "quantity": 200 },
+        { "date": 1668114000000, "quantity": 300 },
+        { "date": 1662670800000, "quantity": 400 },
+        { "date": 1659906000000, "quantity": 500 }
+      ]
+    }
+  ]
+}

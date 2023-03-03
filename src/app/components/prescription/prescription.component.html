@@ -1,14 +1,10 @@
 <div class="dispensecontainer">
   <div class="addremove">
-    <button class="reset" (click)="prescription.reset(host)">RESET</button>
-    <button class="remove" (click)="prescription.prescription.remove()">
-      REMOVE(-)
-    </button>
-    <button class="add" (click)="prescription.prescription.add()">
-      ADD(+)
-    </button>
+    <button class="reset" (click)="reset()">RESET</button>
+    <button class="remove" (click)="remove()">REMOVE(-)</button>
+    <button class="add" (click)="add()">ADD(+)</button>
   </div>
-  <form (ngSubmit)="prescription.submitPrescription(host)" #f="ngForm">
+  <form (ngSubmit)="dispense()">
     <div class="client">
       <label for="client"><button>client</button></label>
       <input
@@ -16,19 +12,16 @@
         [ngModelOptions]="{ standalone: true }"
         id="client"
         autocomplete="off"
-        [(ngModel)]="prescription.prescription.client"
+        [(ngModel)]="client"
       />
       <datalist id="clients">
         <option
-          *ngFor="let client of appData.clients"
-          value="{{ client.client | uppercase }}"
+          *ngFor="let client of clientService.clients"
+          value="{{ client._name | uppercase }}"
         ></option>
       </datalist>
     </div>
-    <div
-      class="control"
-      *ngFor="let prescriptionItem of prescription.prescription.commodities"
-    >
+    <div class="control" *ngFor="let prescriptionItem of items">
       <input
         list="commodities"
         id=""
@@ -39,8 +32,8 @@
       />
       <datalist id="commodities">
         <option
-          *ngFor="let commodity of appData.commodities"
-          value="{{ commodity.commodity | uppercase }}"
+          *ngFor="let commodity of commodityService.commodities"
+          value="{{ commodity._name | uppercase }}"
         ></option>
       </datalist>
       <input
@@ -49,6 +42,7 @@
         id=""
         autocomplete="off"
         [(ngModel)]="prescriptionItem.requested"
+        (ngModelChange)="onRequestedChange(prescriptionItem)"
       />
     </div>
     <div class="submit">

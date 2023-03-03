@@ -6,11 +6,20 @@
 .dashboard::-webkit-scrollbar {
   display: none;
 }
+.heading {
+  height: 5%;
+  text-align: center;
+}
 table {
+  max-height: 95%;
   width: 80%;
   background-color: white;
   margin-left: auto;
   margin-right: auto;
+  overflow-y: scroll;
+}
+table::-webkit-scrollbar {
+  display: none;
 }
 th,
 td {

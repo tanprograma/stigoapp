@@ -35,7 +35,8 @@ th {
   height: 3vh;
   justify-content: space-between;
 }
-.secondary button {
+.secondary .inspectbtn,
+.secondary .issuebtn {
   flex: 0 0 20%;
   height: 100%;
   /* display: block; */
@@ -43,6 +44,8 @@ th {
 .inspectbtn {
   background-color: yellow;
 }
-.issuebtn {
+
+.secondary .issueallbtn {
+  flex: 0 0 auto;
   background-color: rgb(69, 228, 189);
 }
