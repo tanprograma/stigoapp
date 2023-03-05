@@ -17,23 +17,27 @@ export class RequestService {
   constructor(
     private commodityService: CommodityService,
     private storeService: StoreService,
-    private httpService: HttpService
+    private http: HttpService
   ) {}
 
   getRequested() {
-    this.httpService.get(this.baseURL).subscribe((res: Request[]) => {
-      this.requested = res.filter((item: Request) => {
-        return !item.isIssued;
-      });
+    this.http
+      .get(this.http.requestRoutes.getRequests)
+      .subscribe((res: Request[]) => {
+        this.requested = res.filter((item: Request) => {
+          return !item.isIssued;
+        });
 
-      // console.log(res);
-    });
+        // console.log(res);
+      });
   }
   submitRequest(prePayload: Request) {
     const payload: Request = this.getPayload(prePayload);
-    this.httpService.post(this.createURL, payload).subscribe((res: Request) => {
-      this.requested.push(res);
-    });
+    this.http
+      .post(this.http.requestRoutes.create, payload)
+      .subscribe((res: Request) => {
+        this.requested.push(res);
+      });
   }
   public getPayload(prePayload: Request) {
     return {

@@ -34,6 +34,14 @@ interface Request {
   items: RequestItem[];
   isIssued?: boolean;
 }
+interface StockPayloadItem {
+  commodity: any;
+  beggining: number;
+}
+interface StockPayload {
+  items: StockPayloadItem[];
+  store: any;
+}
 interface Inventory {
   store: any;
   commodity: any;
@@ -57,4 +65,6 @@ export {
   RequestItem,
   Request,
   Inventory,
+  StockPayload,
+  StockPayloadItem,
 };

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { View, Store } from 'src/app/types';
 import { MainappserviceService } from 'src/app/services/mainappservice.service';
 import { ViewService } from 'src/app/services/view.service';
 import { StoreService } from 'src/app/services/store.service';
+import { NetworkService } from 'src/app/services/network.service';
 import {
   faCross,
   faChartBar,
@@ -14,7 +15,7 @@ import {
   templateUrl: './mainapp.component.html',
   styleUrls: ['./mainapp.component.css'],
 })
-export class MainappComponent implements OnInit {
+export class MainappComponent implements OnInit, OnDestroy {
   faCross = faCross;
   // views for home
   outletView: View = { icon: faCog, view: 'store' };
@@ -44,7 +45,8 @@ export class MainappComponent implements OnInit {
   constructor(
     public dataService: MainappserviceService,
     public storeService: StoreService,
-    public viewService: ViewService
+    public viewService: ViewService,
+    public networkService: NetworkService
   ) {}
   returnHome(event: boolean) {
     if (event) {
@@ -60,6 +62,10 @@ export class MainappComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.networkService.checkNetworkStatus();
     this.viewService.view = this.viewService.homeView;
+  }
+  ngOnDestroy(): void {
+    this.networkService.networkStatus$.unsubscribe();
   }
 }

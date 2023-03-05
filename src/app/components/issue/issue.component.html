@@ -1,4 +1,4 @@
-<div class="issue">
+<div class="issue" *ngIf="requests.length > 0">
   <div class="issue-container" *ngFor="let item of requests">
     <div class="primary">
       <table>
@@ -45,8 +45,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let commodityItem of item.commodities">
-            <td>{{ commodityItem.commodity }}</td>
+          <tr *ngFor="let commodityItem of item.items">
+            <td>
+              {{ issueService.getCommodityName(commodityItem.commodity) }}
+            </td>
             <td>{{ commodityItem.requested }}</td>
             <td><input type="number" [(ngModel)]="commodityItem.issued" /></td>
           </tr>
@@ -54,4 +56,10 @@
       </table>
     </div>
   </div>
+</div>
+<div class="message" *ngIf="requests.length == 0">
+  <app-message
+    [message]="'nothing to issue. workspace is clean'"
+    [style]="{ 'background-color': 'white', color: 'green' }"
+  ></app-message>
 </div>

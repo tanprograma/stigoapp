@@ -1,4 +1,4 @@
-<div class="dashboard">
+<div class="dashboard" *ngIf="inventory.length > 0">
   <h3 class="heading">summary dashboard for clinic</h3>
   <table>
     <thead>
@@ -30,4 +30,10 @@
       </tr>
     </tbody>
   </table>
+</div>
+<div class="message" *ngIf="inventory.length == 0">
+  <app-message
+    [message]="'please add stores(outlet) to see the summary statistics'"
+    [style]="{ 'background-color': 'black', color: 'red' }"
+  ></app-message>
 </div>

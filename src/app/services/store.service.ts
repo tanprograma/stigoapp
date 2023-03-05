@@ -12,7 +12,7 @@ export class StoreService {
   updateURL: string = `${this.baseURL}/update`;
   constructor(private http: HttpService) {}
   getStores() {
-    this.http.get(this.baseURL).subscribe((res: Store[]) => {
+    this.http.get(this.http.storeRoutes.getStores).subscribe((res: Store[]) => {
       this.stores = res;
       this.setStoreViews();
       console.log(res);
@@ -29,18 +29,14 @@ export class StoreService {
     console.log(this.storeViews);
   }
   createStore(payload: Store) {
-    const valid: boolean = this.validateCreatePayload(payload);
-    console.log(valid);
-    if (!valid) return;
-
-    // console.log(payload);
-    this.http.post(this.baseURL, payload).subscribe((res: Store) => {
-      this.stores.push(res);
-      // this.setStoreViews();
-      console.log(res);
-      console.log(this.stores);
-    });
-    payload._name = '';
+    this.http
+      .post(this.http.storeRoutes.create, payload)
+      .subscribe((res: Store) => {
+        this.stores.push(res);
+        // this.setStoreViews();
+        console.log(res);
+        console.log(this.stores);
+      });
   }
   validateCreatePayload(payload: Store): boolean {
     const found: Store | undefined = this.stores.find((item: Store) => {
@@ -52,7 +48,7 @@ export class StoreService {
   }
   getStoreID(store_name: any) {
     return this.stores.find((store: Store) => {
-      return store._name == store_name;
+      return store._name == store_name.toLowerCase();
     })?._id;
   }
   getStoreName(store_id: any) {
@@ -74,7 +70,7 @@ export class StoreService {
     // console.log(payload);
 
     this.http
-      .patch(`${this.updateURL}/${payload._id}`, payload)
+      .patch(`${this.http.storeRoutes.update}/${payload._id}`, payload)
       .subscribe((res: Store) => {
         const index: number = this.stores.findIndex((item) => {
           return item._id == payload._id;

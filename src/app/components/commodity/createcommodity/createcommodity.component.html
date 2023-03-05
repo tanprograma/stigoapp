@@ -1,5 +1,5 @@
 <h3 class="heading">create form</h3>
-<form (ngSubmit)="commodityService.createCommodity(payload)">
+<form (ngSubmit)="createCommodity()">
   <div class="label">
     <label for="medicine">
       <h4>enter the medicine</h4>
@@ -11,6 +11,7 @@
       name="medicine"
       id="medicine"
       [(ngModel)]="payload._name"
+      autocomplete="off"
     />
     <datalist id="medicines">
       <option

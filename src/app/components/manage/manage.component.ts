@@ -14,6 +14,7 @@ export class ManageComponent implements OnInit {
   clientsItem: string = 'clients';
   commoditiesItem: string = 'commodities';
   storesItem: string = 'stores';
+  inventoriesItem: string = 'inventories';
 
   constructor(private viewService: ViewService) {}
   faCross = faCross;
@@ -24,16 +25,19 @@ export class ManageComponent implements OnInit {
     this.viewService.setView(this.viewService.homeView);
   }
   getItems() {
-    return [this.clientsItem, this.commoditiesItem, this.storesItem].sort(
-      (item1: string, item2: string) => {
-        if (item1 > item2) {
-          return 1;
-        }
-        if (item1 < item2) {
-          return -1;
-        }
-        return 0;
+    return [
+      this.clientsItem,
+      this.commoditiesItem,
+      this.storesItem,
+      this.inventoriesItem,
+    ].sort((item1: string, item2: string) => {
+      if (item1 > item2) {
+        return 1;
       }
-    );
+      if (item1 < item2) {
+        return -1;
+      }
+      return 0;
+    });
   }
 }

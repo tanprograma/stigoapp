@@ -27,6 +27,9 @@ export class ClinicsComponent implements OnInit {
   }
   getClinics() {
     return this.storeService.stores
+      .filter((store: Store) => {
+        return store.isOutlet || store.isWarehouse;
+      })
       .map((store: Store) => {
         return store._name;
       })

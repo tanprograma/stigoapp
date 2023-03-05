@@ -14,25 +14,24 @@ export class CommodityService {
   constructor(private http: HttpService) {}
 
   getCommodities() {
-    this.http.get(this.baseURL).subscribe((res: Commodity[]) => {
-      this.commodities = res;
-      // this.setStoreViews();
-      console.log(res);
-    });
+    this.http
+      .get(this.http.commodityRoutes.getCommodities)
+      .subscribe((res: Commodity[]) => {
+        this.commodities = res;
+        // this.setStoreViews();
+        console.log('commodities....');
+        console.log(res);
+      });
   }
   createCommodity(payload: Commodity) {
-    const valid: boolean = this.validateCreatePayload(payload);
-    console.log(valid);
-    if (!valid) return;
-
-    // console.log(payload);
-    this.http.post(this.createUrl, payload).subscribe((res: Commodity) => {
-      this.commodities.push(res);
-      // this.setStoreViews();
-      console.log(res);
-      console.log(this.commodities);
-    });
-    payload._name = '';
+    this.http
+      .post(this.http.commodityRoutes.create, payload)
+      .subscribe((res: Commodity) => {
+        this.commodities.push(res);
+        // this.setStoreViews();
+        console.log(res);
+        console.log(this.commodities);
+      });
   }
   validateCreatePayload(payload: Commodity): boolean {
     const found: Commodity | undefined = this.commodities.find(
@@ -46,17 +45,19 @@ export class CommodityService {
   }
   deleteCommodity(item: string) {
     const _id: any = this.getCommodityID(item);
-    this.http.delete(`${this.deleteUrl}/${_id}`).subscribe((res: any) => {
-      console.log(res);
-      const index: number = this.commodities.findIndex((item) => {
-        return item._id == _id;
+    this.http
+      .delete(`${this.http.commodityRoutes.delete}/${_id}`)
+      .subscribe((res: any) => {
+        console.log(res);
+        const index: number = this.commodities.findIndex((item) => {
+          return item._id == _id;
+        });
+        this.commodities.splice(index, 1);
       });
-      this.commodities.splice(index, 1);
-    });
   }
-  getCommodityID(commodity_name: string | number) {
+  getCommodityID(commodity_name: any) {
     return this.commodities.find((commodity) => {
-      return commodity._name == commodity_name;
+      return commodity._name == commodity_name.toLowerCase();
     })?._id;
   }
   getCommodityName(commodity_id: any) {
@@ -72,7 +73,7 @@ export class CommodityService {
     };
 
     this.http
-      .patch(`${this.patchUrl}/${payload._id}`, payload)
+      .patch(`${this.http.commodityRoutes.update}/${payload._id}`, payload)
       .subscribe((res: Commodity) => {
         const index: number = this.commodities.findIndex((item) => {
           return item._id == payload._id;

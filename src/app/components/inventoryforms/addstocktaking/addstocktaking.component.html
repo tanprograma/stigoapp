@@ -1,34 +1,35 @@
+<h3 class="heading">add stock-taking data</h3>
 <div class="dispensecontainer">
   <div class="addremove">
     <button class="reset" (click)="reset()">RESET</button>
     <button class="remove" (click)="remove()">REMOVE(-)</button>
     <button class="add" (click)="add()">ADD(+)</button>
   </div>
-  <form (ngSubmit)="dispense()">
+  <form (ngSubmit)="submit()">
     <div class="client">
-      <label for="client"><button>DISPENSE TO</button></label>
+      <label for="client"><button>store</button></label>
       <input
         list="clients"
         [ngModelOptions]="{ standalone: true }"
         id="client"
         autocomplete="off"
-        [(ngModel)]="client"
+        [(ngModel)]="store"
       />
       <datalist id="clients">
         <option
-          *ngFor="let client of clientService.clients"
-          value="{{ client._name | uppercase }}"
+          *ngFor="let store of stores"
+          value="{{ store._name | uppercase }}"
         ></option>
       </datalist>
     </div>
-    <div class="control" *ngFor="let prescriptionItem of items">
+    <div class="control" *ngFor="let stockItem of items">
       <input
         list="commodities"
         id=""
         autocomplete="off"
         placeholder="e.g metro"
         [ngModelOptions]="{ standalone: true }"
-        [(ngModel)]="prescriptionItem.commodity"
+        [(ngModel)]="stockItem.commodity"
       />
       <datalist id="commodities">
         <option
@@ -41,12 +42,11 @@
         [ngModelOptions]="{ standalone: true }"
         id=""
         autocomplete="off"
-        [(ngModel)]="prescriptionItem.requested"
-        (ngModelChange)="onRequestedChange(prescriptionItem)"
+        [(ngModel)]="stockItem.beggining"
       />
     </div>
     <div class="submit">
-      <input type="submit" value="SUBMIT PRESCRIPTION" />
+      <input type="submit" value="SUBMIT STOCK" />
     </div>
   </form>
 </div>

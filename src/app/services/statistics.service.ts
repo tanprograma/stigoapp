@@ -5,7 +5,7 @@ import { CommodityService } from './commodity.service';
 import { ClientService } from './client.service';
 import { RequestService } from './request.service';
 import { PrescriptionService } from './prescription.service';
-import { Transaction, Inventory, Commodity } from '../types';
+import { Transaction, Inventory, Commodity, Store } from '../types';
 @Injectable({
   providedIn: 'root',
 })
@@ -83,11 +83,19 @@ export class StatisticsService {
     );
     return newData;
   }
+  getStoreByID(store: any) {
+    return this.storeservice.stores.find((item: Store) => {
+      return item._id == store;
+    });
+  }
   getDispensed() {
     const dispensed: any = [];
     this.commodityService.commodities.forEach((commodity: Commodity) => {
       const data = this.inventoryService
         .filterInventoryByCommodity(commodity._name)
+        .filter((item: Inventory) => {
+          return this.getStoreByID(item.store)?.isOutlet;
+        })
         .map((inventory: Inventory) => {
           return {
             store: this.getStoreName(inventory.store),
@@ -123,8 +131,11 @@ export class StatisticsService {
     });
   }
   getStoreInventorySummary(store: string) {
-    return this.inventoryService
-      .getInventoryByStore(store)
+    const inventory = this.inventoryService.getInventoryByStore(store);
+    if (inventory.length == 0) {
+      return [];
+    }
+    return inventory
       .map((item: Inventory, index: number) => {
         return {
           sn: index + 1,
@@ -134,6 +145,15 @@ export class StatisticsService {
           dispensed: item.dispensed,
           commodity: this.getCommodityName(item.commodity),
         };
+      })
+      .sort((item1: any, item2: any) => {
+        if (item1.commodity > item2.commodity) {
+          return 1;
+        }
+        if (item1.commodity < item2.commodity) {
+          return -1;
+        }
+        return 0;
       });
   }
   getInventorySummary() {

@@ -1,6 +1,3 @@
-.shop {
-  height: 100vh;
-}
 .header {
   height: 15vh;
 }
@@ -12,7 +9,4 @@
 }
 .body {
   height: 85vh;
-}
-.storecontroler {
-  height: 100%;
 }

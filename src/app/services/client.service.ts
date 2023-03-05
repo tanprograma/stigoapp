@@ -5,34 +5,27 @@ import { HttpService } from './http.service';
   providedIn: 'root',
 })
 export class ClientService {
-  baseURL: string = 'http://localhost:5000/clients';
-  createURL: string = `${this.baseURL}/create`;
-  DeleteURL: string = `${this.baseURL}/delete`;
-  patchURL: string = `${this.baseURL}/update`;
-
   clients!: Client[];
   constructor(private http: HttpService) {}
 
   getClients() {
-    this.http.get(this.baseURL).subscribe((res: Client[]) => {
-      this.clients = res;
-
-      console.log(res);
-    });
+    this.http
+      .get(this.http.clientRoutes.getClients)
+      .subscribe((res: Client[]) => {
+        this.clients = res;
+        console.log('clients....');
+        console.log(res);
+      });
   }
   createClient(payload: Client) {
-    const valid: boolean = this.validateCreatePayload(payload);
-    console.log(valid);
-    if (!valid) return;
-
-    // console.log(payload);
-    this.http.post(this.createURL, payload).subscribe((res: Client) => {
-      this.clients.push(res);
-      // this.setStoreViews();
-      console.log(res);
-      console.log(this.clients);
-    });
-    payload._name = '';
+    this.http
+      .post(this.http.clientRoutes.create, payload)
+      .subscribe((res: Client) => {
+        this.clients.push(res);
+        // this.setStoreViews();
+        console.log(res);
+        console.log(this.clients);
+      });
   }
   validateCreatePayload(payload: Client): boolean {
     const found: Client | undefined = this.clients.find((item: Client) => {
@@ -44,13 +37,15 @@ export class ClientService {
   }
   deleteClient(item: string) {
     const id: any = this.getClientID(item);
-    this.http.delete(`${this.DeleteURL}/${id}`).subscribe((res: any) => {
-      console.log(res);
-      const index: number = this.clients.findIndex((item) => {
-        return item._id == id;
+    this.http
+      .delete(`${this.http.clientRoutes.delete}/${id}`)
+      .subscribe((res: any) => {
+        console.log(res);
+        const index: number = this.clients.findIndex((item) => {
+          return item._id == id;
+        });
+        this.clients.splice(index, 1);
       });
-      this.clients.splice(index, 1);
-    });
   }
   getClientID(client_name: string) {
     return this.clients.find((client: Client) => {
@@ -65,7 +60,7 @@ export class ClientService {
   updateClient(item: { client: string; updated: string }) {
     const id = this.getClientID(item.client);
     const payload = {
-      commodity: item.updated,
+      _name: item.updated,
       _id: id,
     };
     // const index: number = this.commodities.findIndex((item) => {
@@ -75,7 +70,7 @@ export class ClientService {
     // console.log(payload);
 
     this.http
-      .patch(`${this.patchURL}/${payload._id}`, payload)
+      .patch(`${this.http.clientRoutes.update}/${payload._id}`, payload)
       .subscribe((res: Client) => {
         const index: number = this.clients.findIndex((item) => {
           return item._id == payload._id;

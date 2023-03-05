@@ -1,4 +1,4 @@
-<div class="mainapp">
+<div class="mainapp" *ngIf="networkService.networkStatus">
   <app-home *ngIf="viewService.view == viewService.homeView"></app-home>
 
   <app-clinics
@@ -8,4 +8,10 @@
   <app-masterstatistics
     *ngIf="viewService.view == viewService.statisticsView"
   ></app-masterstatistics>
+</div>
+<div class="offline" *ngIf="!networkService.networkStatus">
+  <app-message
+    [message]="'no network! please connect to the network!'"
+    [style]="{ 'background-color': 'black', color: 'red' }"
+  ></app-message>
 </div>

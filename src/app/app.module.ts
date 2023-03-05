@@ -31,7 +31,7 @@ import { ManageclientComponent } from './components/manageclient/manageclient.co
 import { CreatestoreComponent } from './components/storeforms/createstore/createstore.component';
 import { CreatecommodityComponent } from './components/commodity/createcommodity/createcommodity.component';
 import { UpdatecommodityComponent } from './components/commodity/updatecommodity/updatecommodity.component';
-import { DeletecollectionComponent } from './components/deletecollection/deletecollection.component';
+
 import { DeletecommodityComponent } from './components/commodity/deletecommodity/deletecommodity.component';
 import { UpdatestoreComponent } from './components/storeforms/updatestore/updatestore.component';
 import { DeletestoreComponent } from './components/storeforms/deletestore/deletestore.component';
@@ -57,6 +57,9 @@ import { MasterdispenseddashboardComponent } from './components/masterdispensedd
 import { MasterreceiveddashboardComponent } from './components/masterreceiveddashboard/masterreceiveddashboard.component';
 import { MasterdispenseddetailedComponent } from './components/masterdispenseddetailed/masterdispenseddetailed.component';
 import { MasterreceiveddetailedComponent } from './components/masterreceiveddetailed/masterreceiveddetailed.component';
+import { ManageinventoryComponent } from './components/manageinventory/manageinventory.component';
+import { AddstocktakingComponent } from './components/inventoryforms/addstocktaking/addstocktaking.component';
+import { MessageComponent } from './components/message/message.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,7 @@ import { MasterreceiveddetailedComponent } from './components/masterreceiveddeta
     CreatestoreComponent,
     CreatecommodityComponent,
     UpdatecommodityComponent,
-    DeletecollectionComponent,
+
     DeletecommodityComponent,
     UpdatestoreComponent,
     DeletestoreComponent,
@@ -112,6 +115,9 @@ import { MasterreceiveddetailedComponent } from './components/masterreceiveddeta
     MasterreceiveddashboardComponent,
     MasterdispenseddetailedComponent,
     MasterreceiveddetailedComponent,
+    ManageinventoryComponent,
+    AddstocktakingComponent,
+    MessageComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, FontAwesomeModule],
   providers: [],

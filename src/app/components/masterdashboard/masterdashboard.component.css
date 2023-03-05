@@ -29,3 +29,6 @@ td {
 tbody tr:hover {
   background-color: rgb(46, 203, 203);
 }
+.message {
+  height: 100%;
+}

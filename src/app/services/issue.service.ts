@@ -33,7 +33,7 @@ export class IssueService {
 
     const payload: any = this.getPayload(issueItem);
     this.http
-      .patch(`${this.requestService.updateURL}`, payload)
+      .patch(`${this.http.requestRoutes.update}`, payload)
       .subscribe((res: Request) => {
         console.log(res);
       });

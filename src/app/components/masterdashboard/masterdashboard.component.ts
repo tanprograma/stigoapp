@@ -11,6 +11,7 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 export class MasterdashboardComponent implements OnInit {
   constructor(public statisticsService: StatisticsService) {}
   inventories: any;
+
   ngOnInit(): void {}
   getInventories() {}
   reduceSum(coll: Transaction[]): number {

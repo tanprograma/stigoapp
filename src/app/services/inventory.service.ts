@@ -2,7 +2,13 @@ import { Injectable } from '@angular/core';
 import { StoreService } from './store.service';
 import { HttpService } from './http.service';
 import { CommodityService } from './commodity.service';
-import { Commodity, Transaction, Inventory } from '../types';
+import {
+  Commodity,
+  Transaction,
+  Inventory,
+  StockPayload,
+  StockPayloadItem,
+} from '../types';
 @Injectable({
   providedIn: 'root',
 })
@@ -15,11 +21,13 @@ export class InventoryService {
     private storeService: StoreService
   ) {}
   getInventory() {
-    this.http.get(this.url).subscribe((res: Inventory[]) => {
-      this.inventories = res;
-      console.log('getting the response....');
-      console.log(this.inventories);
-    });
+    this.http
+      .get(this.http.inventoryRoutes.getInventories)
+      .subscribe((res: Inventory[]) => {
+        this.inventories = res;
+        console.log('inventories.....');
+        console.log(this.inventories);
+      });
   }
   // getCommodityName(){}
   getInventoryByStore(store: string) {
@@ -117,5 +125,57 @@ export class InventoryService {
           commodity: item.commodity,
         };
       });
+  }
+  // handling stock submission
+  submitStock(prePayload: StockPayload) {
+    const payload: StockPayload = this.getPayload(prePayload);
+
+    this.http
+      .patch(this.http.inventoryRoutes.updateStock, payload)
+      .subscribe((res: Inventory[]) => {
+        console.log(res);
+      });
+  }
+  public getPayload(prePayload: StockPayload) {
+    return {
+      store: this.storeService.getStoreID(prePayload.store),
+      items: this.transformItems(prePayload.items),
+    };
+  }
+  transformItems(items: StockPayloadItem[]) {
+    items.forEach((reqItem: StockPayloadItem) => {
+      reqItem.commodity = this.commodityService.getCommodityID(
+        reqItem.commodity
+      );
+    });
+    return items;
+  }
+  validate(request: StockPayload) {
+    const isClient = this.validateStore(request.store);
+    console.log(`isClient:${isClient}`);
+    if (!isClient) return false;
+    const isitems = this.validateitems(request.items);
+    console.log(`isitems:${isitems}`);
+    if (!isitems) return false;
+    return true;
+  }
+  private validateStore(store: any) {
+    const found = this.storeService.getStoreID(store);
+    if (found != undefined) return true;
+    return false;
+  }
+  private validateitems(items: StockPayloadItem[]) {
+    let isitems!: boolean;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      const isCommodity = this.commodityService.getCommodityID(item.commodity);
+
+      if (isCommodity == undefined) {
+        isitems = false;
+        break;
+      }
+      isitems = true;
+    }
+    return isitems;
   }
 }

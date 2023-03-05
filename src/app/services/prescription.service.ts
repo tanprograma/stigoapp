@@ -15,21 +15,25 @@ export class PrescriptionService {
   dispensed!: Request[];
 
   constructor(
-    private httpService: HttpService,
+    private http: HttpService,
     private storeService: StoreService,
     private commodityService: CommodityService,
     private clientService: ClientService
   ) {}
   getPrescriptions() {
-    this.httpService.get(this.baseURL).subscribe((res: Request[]) => {
-      this.dispensed = res;
-    });
+    this.http
+      .get(`${this.http.baseURL}/prescriptions`)
+      .subscribe((res: Request[]) => {
+        this.dispensed = res;
+      });
   }
   submitPrescription(prePayload: Request) {
     const payload: Request = this.getPayload(prePayload);
-    this.httpService.post(this.createURL, payload).subscribe((res: Request) => {
-      this.dispensed.push(res);
-    });
+    this.http
+      .post(this.http.prescriptionRoutes.create, payload)
+      .subscribe((res: Request) => {
+        this.dispensed.push(res);
+      });
   }
   public getPayload(prePayload: Request) {
     return {
@@ -58,8 +62,8 @@ export class PrescriptionService {
   }
   private validateClient(client: any) {
     const found = this.clientService.getClientID(client);
-    if (found != undefined) return true;
-    return false;
+    if (found == undefined) return false;
+    return true;
   }
   private validateitems(items: any) {
     let isitems!: boolean;

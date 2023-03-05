@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { View } from 'src/app/types';
+import { Store, View } from 'src/app/types';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { StoreService } from 'src/app/services/store.service';
 import {
   faCog,
   faHome,
@@ -17,6 +18,7 @@ import {
 })
 export class ShopComponent implements OnInit {
   @Input() view!: View;
+  isWarehouse!: boolean;
 
   @Output() returnHome = new EventEmitter<boolean>();
   @Output() navigateHome = new EventEmitter<boolean>();
@@ -28,17 +30,10 @@ export class ShopComponent implements OnInit {
   homeView: View = { icon: faHome, view: 'home' };
   backView: View = { icon: faArrowLeft, view: 'back' };
 
-  views: View[] = [
-    this.homeView,
-    this.dispenseView,
-    this.requestView,
-    this.issueView,
-    this.chartsView,
-    this.backView,
-  ];
+  views!: View[];
   // *****end of views for home
   myView!: View;
-  secondaryView: View = this.dispenseView;
+  secondaryView!: View;
   isMyView: boolean = false;
   setView(view: View) {
     if (view == this.homeView) {
@@ -67,16 +62,50 @@ export class ShopComponent implements OnInit {
     this.myView = { icon: view.icon, view: `${this.view.view}/${view.view}` };
 
     console.log(this.myView);
+    console.log(view);
   }
 
-  constructor() {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
     this.myView = {
-      icon: this.dispenseView.icon,
+      icon: this.chartsView.icon,
       view: `${this.view.view}/${this.chartsView.view}`,
     };
+    this.secondaryView = this.chartsView;
     console.log(this.view);
     console.log(this.myView);
+    // determining if warehouse or not
+    const found: any = this.storeService.stores
+      .filter((store: Store) => {
+        return store.isOutlet || store.isWarehouse;
+      })
+      .find((store: Store) => {
+        return store._name == this.view.view;
+      });
+    if (found.isWarehouse == undefined) this.isWarehouse = false;
+    if (found.isWarehouse) this.isWarehouse = true;
+    this.initializeViews(this.isWarehouse);
+  }
+  initializeViews(condition: boolean) {
+    if (condition) {
+      this.views = [
+        this.homeView,
+
+        this.requestView,
+        this.issueView,
+        this.chartsView,
+        this.backView,
+      ];
+      return;
+    }
+    this.views = [
+      this.homeView,
+      this.dispenseView,
+      this.requestView,
+      this.issueView,
+      this.chartsView,
+      this.backView,
+    ];
   }
 }

@@ -23,3 +23,9 @@
   (returnHome)="returnHome($event)"
   (navigateHome)="view = home"
 ></app-managecommodity>
+<app-manageinventory
+  *ngIf="view == inventoriesItem"
+  [view]="{ view: view, icon: faCross }"
+  (returnHome)="returnHome($event)"
+  (navigateHome)="view = home"
+></app-manageinventory>

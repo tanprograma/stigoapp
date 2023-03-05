@@ -8,6 +8,7 @@ import { Inventory, Transaction } from 'src/app/types';
 })
 export class DashboardComponent implements OnInit {
   @Input() inventory!: any;
+
   constructor() {}
 
   ngOnInit(): void {}

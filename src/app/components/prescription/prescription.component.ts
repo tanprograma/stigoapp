@@ -51,6 +51,7 @@ export class PrescriptionComponent implements OnInit {
     if (!validRequest) return;
 
     this.prescriptionService.submitPrescription(request);
+    // console.log(request);
     this.reset();
   }
 }
