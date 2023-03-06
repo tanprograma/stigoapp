@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import * as dotenv from 'dotenv';
+import { environment } from 'src/environments/environment';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -10,7 +13,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class HttpService {
-  baseURL: string = 'http://192.168.172.75:5000';
+  baseURL: string = environment['baseURL'];
   storeRoutes = {
     create: `${this.baseURL}/stores/create`,
     getStores: `${this.baseURL}/stores`,
