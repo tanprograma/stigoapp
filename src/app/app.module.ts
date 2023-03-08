@@ -7,11 +7,6 @@ import { AppComponent } from './app.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { ShopComponent } from './components/shop/shop.component';
-
-import { PrescriptionComponent } from './components/prescription/prescription.component';
-
-import { RequestComponent } from './components/request/request.component';
 import { StatisticsComponent } from './components/statistics/statistics.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { IssuedstatsComponent } from './components/issuedstats/issuedstats.component';
@@ -49,6 +44,26 @@ import { MasterdispenseddetailedComponent } from './components/masterdispensedde
 import { MasterreceiveddetailedComponent } from './components/masterreceiveddetailed/masterreceiveddetailed.component';
 import { ManageinventoryComponent } from './components/manageinventory/manageinventory.component';
 import { AddstocktakingComponent } from './components/inventoryforms/addstocktaking/addstocktaking.component';
+// from redesigned
+
+import { BillboardComponent } from './components/shared/billboard/billboard.component';
+import { SelectwizardComponent } from './components/shared/selectwizard/selectwizard.component';
+
+import { FooterComponent } from './components/shared/footer/footer.component';
+import { AppheaderComponent } from './components/shared/appheader/appheader.component';
+import { HomeComponent } from './components/shared/home/home.component';
+
+import { MainapplicationComponent } from './components/mainapplication/mainapplication.component';
+import { ManageapplicationComponent } from './components/manageapplication/manageapplication.component';
+import { StoreapplicationComponent } from './components/storeapplication/storeapplication.component';
+import { StatisticsapplicationComponent } from './components/statisticsapplication/statisticsapplication.component';
+import { SelectbuttonComponent } from './components/shared/selectbutton/selectbutton.component';
+import { HeaderComponent } from './components/shared/header/header.component';
+import { NavigationComponent } from './components/shared/navigation/navigation.component';
+import { ShopComponent } from './components/shop/shop.component';
+import { PrescriptionComponent } from './components/prescription/prescription.component';
+import { RequestComponent } from './components/request/request.component';
+import { IssueComponent } from './components/issue/issue.component';
 
 @NgModule({
   declarations: [
@@ -56,9 +71,6 @@ import { AddstocktakingComponent } from './components/inventoryforms/addstocktak
 
     ShopComponent,
 
-    PrescriptionComponent,
-
-    RequestComponent,
     StatisticsComponent,
     DashboardComponent,
     IssuedstatsComponent,
@@ -96,6 +108,24 @@ import { AddstocktakingComponent } from './components/inventoryforms/addstocktak
     MasterreceiveddetailedComponent,
     ManageinventoryComponent,
     AddstocktakingComponent,
+    BillboardComponent,
+    SelectwizardComponent,
+
+    FooterComponent,
+    AppheaderComponent,
+    HomeComponent,
+
+    MainapplicationComponent,
+    ManageapplicationComponent,
+    StoreapplicationComponent,
+    StatisticsapplicationComponent,
+    SelectbuttonComponent,
+    HeaderComponent,
+    NavigationComponent,
+    ShopComponent,
+    PrescriptionComponent,
+    RequestComponent,
+    IssueComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, FontAwesomeModule],
   providers: [],
