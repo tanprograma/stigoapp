@@ -23,8 +23,8 @@ export class StoreapplicationComponent implements OnInit {
   ngOnInit(): void {
     this.home = this.viewService.clinicsView;
     this.view = this.home;
-    this.views = this.viewService.storeViews;
-    // this.setViews();
+    // this.views = this.viewService.storeViews;
+    this.setViews();
   }
   setView(view: View) {
     this.view = view;

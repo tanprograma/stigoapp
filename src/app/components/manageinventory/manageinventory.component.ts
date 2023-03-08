@@ -9,16 +9,13 @@ import { ViewService } from 'src/app/services/view.service';
   styleUrls: ['./manageinventory.component.css'],
 })
 export class ManageinventoryComponent implements OnInit {
-  addStockView: View = { icon: faCog, view: 'add stock' };
-  // describes the primary view in header
   @Input() storeView!: View;
   @Output() sendView = new EventEmitter<View>();
+  addStockView: View = { icon: faCog, view: 'add stock' };
+  // describes the primary view in header
+
   views!: View[];
   secondaryView!: View;
-
-  createView: View = { icon: faCog, view: 'create' };
-  deleteView: View = { icon: faCog, view: 'delete' };
-  updateView: View = { icon: faCog, view: 'update' };
 
   // *****end of views for home
   ngOnInit(): void {
@@ -27,14 +24,14 @@ export class ManageinventoryComponent implements OnInit {
       this.viewService.manageView,
       this.addStockView,
     ];
-    this.secondaryView = this.createView;
+    this.secondaryView = this.addStockView;
   }
   setView(view: View) {
     if (view == this.viewService.homeView) {
       this.viewService.setView(view);
       return;
     }
-    if (view == this.viewService.clinicsView) {
+    if (view == this.viewService.manageView) {
       this.sendView.emit(view);
       return;
     }

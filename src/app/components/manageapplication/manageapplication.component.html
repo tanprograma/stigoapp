@@ -8,15 +8,27 @@
     ></app-home>
   </div>
   <div class="home" *ngIf="view == inventoryView">
-    <app-manageinventory></app-manageinventory>
+    <app-manageinventory
+      [storeView]="view"
+      (sendView)="setView($event)"
+    ></app-manageinventory>
   </div>
   <div class="home" *ngIf="view == clientView">
-    <app-manageclient></app-manageclient>
+    <app-manageclient
+      [storeView]="view"
+      (sendView)="setView($event)"
+    ></app-manageclient>
   </div>
   <div class="home" *ngIf="view == commodityView">
-    <app-managecommodity></app-managecommodity>
+    <app-managecommodity
+      [storeView]="view"
+      (sendView)="setView($event)"
+    ></app-managecommodity>
   </div>
   <div class="home" *ngIf="view == storeView">
-    <app-manageinventory></app-manageinventory>
+    <app-managestore
+      [storeView]="view"
+      (sendView)="setView($event)"
+    ></app-managestore>
   </div>
 </div>

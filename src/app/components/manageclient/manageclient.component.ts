@@ -35,7 +35,7 @@ export class ManageclientComponent implements OnInit {
       this.viewService.setView(view);
       return;
     }
-    if (view == this.viewService.clinicsView) {
+    if (view == this.viewService.manageView) {
       this.sendView.emit(view);
       return;
     }
