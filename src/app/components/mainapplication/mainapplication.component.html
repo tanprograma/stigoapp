@@ -1,0 +1,25 @@
+<div class="mainapp">
+  <div class="home" *ngIf="viewService.homeView == viewService.view">
+    <app-home
+      [homeView]="home"
+      [heading]="'select an application'"
+      [views]="views"
+      (getView)="setView($event)"
+    ></app-home>
+  </div>
+  <div class="home" *ngIf="viewService.manageView == viewService.view">
+    <app-manageapplication></app-manageapplication>
+  </div>
+  <div class="home" *ngIf="viewService.clinicsView == viewService.view">
+    <app-storeapplication></app-storeapplication>
+  </div>
+  <div class="home" *ngIf="viewService.statisticsView == viewService.view">
+    <app-statisticsapplication></app-statisticsapplication>
+  </div>
+</div>
+<!-- <div class="offline" *ngIf="!networkService.networkStatus">
+  <app-billboard
+    [message]="'no network! please connect to the network!'"
+    [style]="{ 'background-color': 'black', color: 'red' }"
+  ></app-billboard>
+</div> -->

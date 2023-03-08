@@ -1,0 +1,9 @@
+<div class="logo">
+  <h1>
+    <span class="icon"> <fa-icon [icon]="primaryView.icon"></fa-icon></span>
+    <span class="name">{{ primaryView.view }}/{{ secondaryView.view }}</span>
+  </h1>
+</div>
+<div class="nav">
+  <app-navigation [views]="views" (setView)="sendView($event)"></app-navigation>
+</div>

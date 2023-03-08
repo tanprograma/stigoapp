@@ -1,18 +1,8 @@
-.shop {
-  height: 100vh;
+.logo {
+  height: 70%;
+  background-color: grey;
 }
-.header {
-  height: 15vh;
-}
-.header .logo {
-  height: 80%;
-}
-.header .navigation {
-  height: 20%;
-}
-.body {
-  height: 85vh;
-}
-.storecontroler {
-  height: 100%;
+.nav {
+  height: 30%;
+  background-color: bisque;
 }

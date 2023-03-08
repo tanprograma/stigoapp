@@ -1,0 +1,10 @@
+<h1>
+  <span class="icon"> <fa-icon [icon]="heading.icon"></fa-icon></span>
+  <span class="name">stigoapp/{{ heading.view }}</span>
+  <span class="back" *ngIf="viewService.view != viewService.homeView">
+    <app-selectbutton
+      [viewItem]="{ icon: faArrowLeft, view: 'back' }"
+      (click)="viewService.setView(viewService.homeView)"
+    ></app-selectbutton>
+  </span>
+</h1>

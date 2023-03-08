@@ -1,111 +1,49 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, View } from 'src/app/types';
-import { Input, Output, EventEmitter } from '@angular/core';
-import { StoreService } from 'src/app/services/store.service';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { View } from 'src/app/types';
 import {
-  faCog,
-  faHome,
-  faArrowLeft,
-  faChartBar,
   faCross,
-  faShoppingBag,
-  faPrescriptionBottle,
+  faPrescription,
+  faChartPie,
 } from '@fortawesome/free-solid-svg-icons';
+import { ViewService } from 'src/app/services/view.service';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css'],
 })
 export class ShopComponent implements OnInit {
-  @Input() view!: View;
-  isWarehouse!: boolean;
-
-  @Output() returnHome = new EventEmitter<boolean>();
-  @Output() navigateHome = new EventEmitter<boolean>();
-
-  dispenseView: View = { icon: faCog, view: 'dispense' };
-  requestView: View = { icon: faCog, view: 'request' };
-  chartsView: View = { icon: faCog, view: 'statistics' };
-  issueView: View = { icon: faCog, view: 'issue' };
-  homeView: View = { icon: faHome, view: 'home' };
-  backView: View = { icon: faArrowLeft, view: 'back' };
-
+  // describes the primary view in header
+  @Input() storeView!: View;
+  @Output() sendView = new EventEmitter<View>();
   views!: View[];
-  // *****end of views for home
-  myView!: View;
   secondaryView!: View;
-  isMyView: boolean = false;
-  setView(view: View) {
-    if (view == this.homeView) {
-      this.returnBack();
-      return;
-    }
-    if (view == this.backView) {
-      this.navigateBack();
-      return;
-    }
-    console.log('...in shop');
-    console.log(view);
-    this.transformView(view);
-  }
-  // the homepage
-  returnBack() {
-    this.returnHome.emit(true);
-  }
-  // same app
-  navigateBack() {
-    this.navigateHome.emit(true);
-  }
-  transformView(view: View) {
-    this.secondaryView = view;
-    this.isMyView = true;
-    this.myView = { icon: view.icon, view: `${this.view.view}/${view.view}` };
+  dispenseView: View = { icon: faPrescription, view: 'dispense' };
+  requestView: View = { icon: faPrescription, view: 'request' };
+  issueView: View = { icon: faPrescription, view: 'issue' };
+  statisticsView: View = { icon: faChartPie, view: 'statistics' };
 
-    console.log(this.myView);
-    console.log(view);
-  }
-
-  constructor(private storeService: StoreService) {}
+  constructor(public viewService: ViewService) {}
 
   ngOnInit(): void {
-    this.myView = {
-      icon: this.chartsView.icon,
-      view: `${this.view.view}/${this.chartsView.view}`,
-    };
-    this.secondaryView = this.chartsView;
-    console.log(this.view);
-    console.log(this.myView);
-    // determining if warehouse or not
-    const found: any = this.storeService.stores
-      .filter((store: Store) => {
-        return store.isOutlet || store.isWarehouse;
-      })
-      .find((store: Store) => {
-        return store._name == this.view.view;
-      });
-    if (found.isWarehouse == undefined) this.isWarehouse = false;
-    if (found.isWarehouse) this.isWarehouse = true;
-    this.initializeViews(this.isWarehouse);
-  }
-  initializeViews(condition: boolean) {
-    if (condition) {
-      this.views = [
-        this.homeView,
-
-        this.requestView,
-        this.issueView,
-        this.chartsView,
-        this.backView,
-      ];
-      return;
-    }
     this.views = [
-      this.homeView,
+      this.viewService.homeView,
+      this.viewService.clinicsView,
       this.dispenseView,
       this.requestView,
       this.issueView,
-      this.chartsView,
-      this.backView,
+      this.statisticsView,
     ];
+    this.secondaryView = this.viewService.shopViewDefault;
+  }
+  setView(view: View) {
+    if (view == this.viewService.homeView) {
+      this.viewService.setView(view);
+      return;
+    }
+    if (view == this.viewService.clinicsView) {
+      this.sendView.emit(view);
+      return;
+    }
+    this.secondaryView = view;
   }
 }

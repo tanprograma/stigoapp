@@ -1,0 +1,9 @@
+<div class="getView">
+  <h4>{{ heading }}</h4>
+  <div class="control" *ngFor="let viewItem of views">
+    <button (click)="selectView(viewItem)">
+      <span class="icon"><fa-icon [icon]="viewItem.icon"></fa-icon></span>
+      <span class="name">{{ viewItem.view | uppercase }}</span>
+    </button>
+  </div>
+</div>

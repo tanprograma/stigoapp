@@ -1,0 +1,15 @@
+<div class="home">
+  <div class="mainheader">
+    <app-appheader [heading]="homeView"></app-appheader>
+  </div>
+  <div class="mainbody">
+    <app-selectwizard
+      [heading]="heading"
+      [views]="views"
+      (getView)="setView($event)"
+    ></app-selectwizard>
+  </div>
+  <div class="mainfooter">
+    <app-footer></app-footer>
+  </div>
+</div>

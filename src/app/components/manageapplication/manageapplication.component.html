@@ -1,0 +1,19 @@
+<div class="mainapp">
+  <div class="home" *ngIf="view == home">
+    <app-home
+      [homeView]="home"
+      [heading]="'select a collection to manage'"
+      [views]="views"
+      (getView)="setView($event)"
+    ></app-home>
+  </div>
+  <!-- <div class="home" *ngIf="view == viewService.manageView">
+    <app-manageapp></app-manageapp>
+  </div>
+  <div class="home" *ngIf="view == viewService.clinicsView">
+    <app-storeapp></app-storeapp>
+  </div>
+  <div class="home" *ngIf="view == viewService.statisticsView">
+    <app-statisticsapp></app-statisticsapp>
+  </div> -->
+</div>

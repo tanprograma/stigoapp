@@ -1,0 +1,15 @@
+<div class="mainapp">
+  <div class="home" *ngIf="view == home">
+    <app-home
+      [homeView]="home"
+      [heading]="'select a  store'"
+      [views]="views"
+      (getView)="setView($event)"
+    ></app-home>
+  </div>
+  <div *ngFor="let store of views">
+    <div class="home" *ngIf="view == store">
+      <app-shop [storeView]="view" (sendView)="setView($event)"></app-shop>
+    </div>
+  </div>
+</div>
