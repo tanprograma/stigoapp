@@ -3,16 +3,26 @@
   box-sizing: border-box;
   margin: 0;
 }
-/* .header {
-  height: 14vh;
-
-  background-color: rgb(155, 226, 202);
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
-.body {
-  height: 86vh;
-  background-color: rgb(237, 224, 183);
+.mainheader {
+  height: 12vh;
 }
-.bodycomponent {
-  background-color: rgb(237, 224, 183);
+.mainbody {
+  height: 85vh;
+}
+.mainfooter {
+  height: 3vh;
+}
+.icon {
+  flex: 0 0 20%;
+  text-align: center;
+}
+.name {
+  flex: 1 0 70%;
+}
+.home {
   height: 100%;
-} */
+}
