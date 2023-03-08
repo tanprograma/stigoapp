@@ -30,8 +30,6 @@ import { CreateclientComponent } from './components/clientforms/createclient/cre
 import { UpdateclientComponent } from './components/clientforms/updateclient/updateclient.component';
 import { DeleteclientComponent } from './components/clientforms/deleteclient/deleteclient.component';
 
-import { MasterstatisticsComponent } from './components/masterstatistics/masterstatistics.component';
-import { MasterstatisticshomeComponent } from './components/masterstatisticshome/masterstatisticshome.component';
 import { DashboardchartComponent } from './components/charts/dashboardchart/dashboardchart.component';
 import { MasterdashboarddetailedComponent } from './components/masterdashboarddetailed/masterdashboarddetailed.component';
 
@@ -94,8 +92,6 @@ import { IssueComponent } from './components/issue/issue.component';
     UpdateclientComponent,
     DeleteclientComponent,
 
-    MasterstatisticsComponent,
-    MasterstatisticshomeComponent,
     DashboardchartComponent,
     MasterdashboarddetailedComponent,
 

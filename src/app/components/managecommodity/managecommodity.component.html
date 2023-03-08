@@ -1,24 +1,24 @@
-<header>
-  <div class="logo">
-    <app-logo [view]="isMyView ? myView : view"></app-logo>
-  </div>
-
-  <div class="navigation">
-    <app-navigation
+<div class="home">
+  <div class="mainheader">
+    <app-header
+      [primaryView]="storeView"
+      [secondaryView]="secondaryView"
       [views]="views"
       (setView)="setView($event)"
-    ></app-navigation>
+    ></app-header>
   </div>
-</header>
-<div class="body">
-  <!-- <app-statistics></app-statistics> -->
-  <app-createcommodity
-    *ngIf="secondaryView == createView"
-  ></app-createcommodity>
-  <app-updatecommodity
-    *ngIf="secondaryView == updateView"
-  ></app-updatecommodity>
-  <app-deletecommodity
-    *ngIf="secondaryView == deleteView"
-  ></app-deletecommodity>
+  <div class="mainbody">
+    <app-createcommodity
+      *ngIf="secondaryView == createView"
+    ></app-createcommodity>
+    <app-updatecommodity
+      *ngIf="secondaryView == updateView"
+    ></app-updatecommodity>
+    <app-deletecommodity
+      *ngIf="secondaryView == deleteView"
+    ></app-deletecommodity>
+  </div>
+  <div class="mainfooter">
+    <app-footer></app-footer>
+  </div>
 </div>

@@ -1,29 +1,21 @@
-<div class="shop">
-  <header>
-    <div class="logo">
-      <app-logo [view]="isMyView ? myView : view"></app-logo>
-    </div>
-
-    <div class="navigation">
-      <app-navigation
-        [views]="views"
-        (setView)="setView($event)"
-      ></app-navigation>
-    </div>
-  </header>
-  <div class="body">
-    <!-- <app-masterdashboard
-      *ngIf="secondaryView == tableView"
-      [inventories]="inventoryService.getSummary()"
-    ></app-masterdashboard>
-    <app-masterdashboarddetailed
-      *ngIf="secondaryView == detailedView"
-    ></app-masterdashboarddetailed> -->
+<div class="home">
+  <div class="mainheader">
+    <app-header
+      [primaryView]="storeView"
+      [secondaryView]="secondaryView"
+      [views]="views"
+      (setView)="setView($event)"
+    ></app-header>
+  </div>
+  <div class="mainbody">
     <app-masterdispenseddashboard
       *ngIf="secondaryView == tableView"
     ></app-masterdispenseddashboard>
     <app-masterdispenseddetailed
       *ngIf="secondaryView == detailedView"
     ></app-masterdispenseddetailed>
+  </div>
+  <div class="mainfooter">
+    <app-footer></app-footer>
   </div>
 </div>

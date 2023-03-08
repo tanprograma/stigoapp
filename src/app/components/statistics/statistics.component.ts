@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { MainappserviceService } from 'src/app/services/mainappservice.service';
-import { MainappComponent } from '../mainapp/mainapp.component';
-import { Transaction, Inventory } from 'src/app/types';
+import { Inventory, Transaction } from 'src/app/types';
 import { IssueService } from 'src/app/services/issue.service';
 import { Input } from '@angular/core';
 @Component({
@@ -31,7 +30,7 @@ export class StatisticsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.issueService.getIssued(true);
+    this.issueService.getIssued(true, this.clinic);
   }
   setView(view: string) {
     this.view = view;

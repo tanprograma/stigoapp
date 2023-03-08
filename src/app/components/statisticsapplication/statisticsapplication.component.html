@@ -7,13 +7,13 @@
       (getView)="setView($event)"
     ></app-home>
   </div>
-  <!-- <div class="home" *ngIf="view == viewService.manageView">
-    <app-manageapp></app-manageapp>
+  <div class="home" *ngIf="view == viewService.manageView">
+    <app-dashboardchart [storeView]="view"></app-dashboardchart>
   </div>
   <div class="home" *ngIf="view == viewService.clinicsView">
-    <app-storeapp></app-storeapp>
+    <app-dispensedchart [storeView]="view"></app-dispensedchart>
   </div>
   <div class="home" *ngIf="view == viewService.statisticsView">
-    <app-statisticsapp></app-statisticsapp>
-  </div> -->
+    <app-receivedchart [storeView]="view"></app-receivedchart>
+  </div>
 </div>

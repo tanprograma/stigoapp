@@ -1,12 +1,8 @@
-.header {
-  height: 15vh;
+.logo {
+  height: 70%;
+  background-color: grey;
 }
-.header .logo {
-  height: 80%;
-}
-.header .navigation {
-  height: 20%;
-}
-.body {
-  height: 85vh;
+.nav {
+  height: 30%;
+  background-color: bisque;
 }

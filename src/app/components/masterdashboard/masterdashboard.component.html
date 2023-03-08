@@ -37,8 +37,8 @@
   class="message"
   *ngIf="statisticsService.getInventorySummary().length == 0"
 >
-  <app-message
+  <app-billboard
     [message]="'please add stores(outlet) to see the summary statistics'"
     [style]="{ 'background-color': 'black', color: 'red' }"
-  ></app-message>
+  ></app-billboard>
 </div>
