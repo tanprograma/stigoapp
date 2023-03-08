@@ -19,7 +19,7 @@ export class StatisticsapplicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.home = this.viewService.statisticsView;
-    this.view = this.home;
+    this.view = this.summaryView;
     this.setViews();
   }
   setView(view: View) {
