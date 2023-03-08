@@ -15,7 +15,7 @@ export class MasterdashboardComponent implements OnInit {
   ngOnInit(): void {}
   getInventories() {}
   reduceSum(coll: Transaction[]): number {
-    console.log(coll);
+    // console.log(coll);
     let sum: number = 0;
     coll.forEach((item: Transaction) => {
       sum += item.quantity;

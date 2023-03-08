@@ -54,7 +54,6 @@ export class InventoryService {
         received,
         beggining,
         issued,
-        inspect: false,
       };
     });
   }

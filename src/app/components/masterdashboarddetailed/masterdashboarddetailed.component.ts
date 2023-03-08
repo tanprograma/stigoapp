@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
 import { Transaction } from 'src/app/types';
 import { StatisticsService } from 'src/app/services/statistics.service';
+
+import { InventorySummary } from 'src/app/services/statistics.service';
 @Component({
   selector: 'app-masterdashboarddetailed',
   templateUrl: './masterdashboarddetailed.component.html',
@@ -9,7 +11,9 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 })
 export class MasterdashboarddetailedComponent implements OnInit {
   constructor(public statisticsService: StatisticsService) {}
-  inventories: any;
+  inventories!: InventorySummary[];
+  rawInventories: any;
+  tempVariable = false;
   ngOnInit(): void {
     this.inventories = this.statisticsService.getInventorySummary();
   }
@@ -20,10 +24,5 @@ export class MasterdashboarddetailedComponent implements OnInit {
       sum += item.quantity;
     });
     return sum;
-  }
-  inspect(item: any) {
-    console.log(item.inspect);
-    item.inspect = !item.inspect;
-    console.log(item);
   }
 }

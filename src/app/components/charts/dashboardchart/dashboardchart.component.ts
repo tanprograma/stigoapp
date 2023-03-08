@@ -34,7 +34,7 @@ export class DashboardchartComponent implements OnInit {
       this.viewService.setView(view);
       return;
     }
-    if (view == this.viewService.clinicsView) {
+    if (view == this.viewService.statisticsView) {
       this.sendView.emit(view);
       return;
     }

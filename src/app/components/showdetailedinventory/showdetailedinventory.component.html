@@ -1,0 +1,38 @@
+<div class="secondary">
+  <button class="inspectbtn" (click)="inspect()">
+    {{ inspected ? "CLOSE" : "VIEW DETAILS" }}
+  </button>
+</div>
+<div class="primary tertiary" *ngIf="inspected">
+  <table>
+    <thead>
+      <tr>
+        <th>store</th>
+        <th>available</th>
+        <th>beggining</th>
+        <th>received</th>
+        <th>issued</th>
+
+        <th>dispensed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let statistic of commodities">
+        <td>{{ statistic.store }}</td>
+
+        <td>
+          {{
+            statistic.beggining +
+              reduceSum(statistic.received) -
+              reduceSum(statistic.dispensed)
+          }}
+        </td>
+        <td>{{ statistic.beggining }}</td>
+        <td>{{ reduceSum(statistic.received) }}</td>
+
+        <td>{{ reduceSum(statistic.issued) }}</td>
+        <td>{{ reduceSum(statistic.dispensed) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

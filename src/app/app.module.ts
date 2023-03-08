@@ -62,6 +62,7 @@ import { ShopComponent } from './components/shop/shop.component';
 import { PrescriptionComponent } from './components/prescription/prescription.component';
 import { RequestComponent } from './components/request/request.component';
 import { IssueComponent } from './components/issue/issue.component';
+import { ShowdetailedinventoryComponent } from './components/showdetailedinventory/showdetailedinventory.component';
 
 @NgModule({
   declarations: [
@@ -122,6 +123,7 @@ import { IssueComponent } from './components/issue/issue.component';
     PrescriptionComponent,
     RequestComponent,
     IssueComponent,
+    ShowdetailedinventoryComponent,
   ],
   imports: [BrowserModule, FormsModule, HttpClientModule, FontAwesomeModule],
   providers: [],

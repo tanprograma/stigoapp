@@ -90,6 +90,7 @@ export class StatisticsService {
   }
   getDispensed() {
     const dispensed: any = [];
+
     this.commodityService.commodities.forEach((commodity: Commodity) => {
       const data = this.inventoryService
         .filterInventoryByCommodity(commodity._name)
@@ -156,7 +157,7 @@ export class StatisticsService {
         return 0;
       });
   }
-  getInventorySummary() {
+  getInventorySummary(): InventorySummary[] {
     const inventories = this.inventoryService.getSummary();
     return inventories
       .map((item: any) => {
@@ -186,6 +187,7 @@ export class StatisticsService {
       .filterInventoryByCommodity(commodity)
       .map((item: Inventory) => {
         item.store = this.getStoreName(item.store);
+        console.log(item);
         return item;
       });
   }
@@ -197,4 +199,13 @@ export class StatisticsService {
     });
     return sum;
   }
+}
+export interface InventorySummary {
+  commodity: any;
+  dispensed: any;
+
+  received: any;
+  beggining: number;
+
+  inspect: boolean;
 }

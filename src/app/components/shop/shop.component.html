@@ -16,7 +16,14 @@
       *ngIf="secondaryView == requestView"
       [client]="storeView.view"
     ></app-request>
-    <app-issue *ngIf="secondaryView == issueView" []></app-issue>
+    <app-issue
+      *ngIf="secondaryView == issueView"
+      [host]="storeView.view"
+    ></app-issue>
+    <app-statistics
+      [clinic]="storeView.view"
+      *ngIf="secondaryView == statisticsView"
+    ></app-statistics>
   </div>
   <div class="mainfooter">
     <app-footer></app-footer>
