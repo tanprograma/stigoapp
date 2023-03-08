@@ -53,7 +53,9 @@ export class IssueService {
       items,
     };
   }
-  getIssued(filter: boolean) {
-    return this.requestService.getIssued(filter);
+  getIssued(filter: boolean, store: string) {
+    return this.requestService.getIssued(filter).filter((request: Request) => {
+      return request.host == this.storeservice.getStoreID(store);
+    });
   }
 }
