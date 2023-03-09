@@ -187,7 +187,7 @@ export class StatisticsService {
       .filterInventoryByCommodity(commodity)
       .map((item: Inventory) => {
         item.store = this.getStoreName(item.store);
-        console.log(item);
+        // console.log(item);
         return item;
       });
   }

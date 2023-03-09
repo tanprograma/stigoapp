@@ -12,11 +12,15 @@ import { Input } from '@angular/core';
 })
 export class StatisticsComponent implements OnInit {
   @Input() clinic!: string;
+  summaryInventory: any;
+  dispensedInventory: any;
+  receivedInventory: any;
+  issuedInventory: any;
   dashboardView: string = 'dashboard';
   dispensedView: string = 'dispensed';
   issuedView: string = 'issued';
   receivedView: string = 'received';
-  view: string = this.dashboardView;
+  view!: string;
   sidemenu: string[] = [
     this.dashboardView,
     this.issuedView,
@@ -30,7 +34,13 @@ export class StatisticsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.issueService.getIssued(true, this.clinic);
+    this.summaryInventory = this.statisticsService.getStoreInventorySummary(
+      this.clinic
+    );
+    // this.dispensedInventory
+    // this.receivedInventory
+    this.issuedInventory = this.issueService.getIssued(true, this.clinic);
+    this.view = this.dashboardView;
   }
   setView(view: string) {
     this.view = view;

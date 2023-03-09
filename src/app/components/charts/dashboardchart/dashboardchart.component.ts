@@ -12,6 +12,7 @@ import { ViewService } from 'src/app/services/view.service';
 export class DashboardchartComponent implements OnInit {
   tableView: View = { icon: faCog, view: 'dashboard' };
   detailedView: View = { icon: faCog, view: 'detailed' };
+  home: View = { icon: faArrowLeft, view: 'back' };
   // describes the primary view in header
   @Input() storeView!: View;
   @Output() sendView = new EventEmitter<View>();
@@ -23,7 +24,7 @@ export class DashboardchartComponent implements OnInit {
   ngOnInit(): void {
     this.views = [
       this.viewService.homeView,
-      this.viewService.statisticsView,
+      this.home,
       this.tableView,
       this.detailedView,
     ];
@@ -34,8 +35,8 @@ export class DashboardchartComponent implements OnInit {
       this.viewService.setView(view);
       return;
     }
-    if (view == this.viewService.statisticsView) {
-      this.sendView.emit(view);
+    if (view == this.home) {
+      this.sendView.emit(this.viewService.statisticsView);
       return;
     }
     this.secondaryView = view;

@@ -11,9 +11,9 @@ export class StatisticsapplicationComponent implements OnInit {
   views!: View[];
   view!: View;
   home!: View;
-  summaryView: View = { icon: faChartBar, view: 'summary' };
-  dispensedView: View = { icon: faChartBar, view: 'dispensed' };
-  receivedView: View = { icon: faChartBar, view: 'received' };
+  summaryView: View = { icon: faChartBar, view: 'summary-statistics' };
+  dispensedView: View = { icon: faChartBar, view: 'dispensed-statistics' };
+  receivedView: View = { icon: faChartBar, view: 'received-statistics' };
 
   constructor(public viewService: ViewService) {}
 
